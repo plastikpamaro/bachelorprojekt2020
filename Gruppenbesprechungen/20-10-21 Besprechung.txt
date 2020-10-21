@@ -1,0 +1,29 @@
+Dokumentation der Besprechung am 21. Oktober 2020
+
+Autor: Pascal Roschkowski
+weiterhin Anwesend: M. Bolsch, H. Noeldeke, P. Otto, 
+
+Fragen:
+
+1. Siehe Final Dokument
+2. Was für eine Kamera bekommen wir. Welche Brennweite/Winkel hat die Kamera? (Rasperry Kameramodul mit verschiedenen Objektiven)
+3. IP Schutzklasse? Wie umgehen wir das Dämpfverhalten von Wasser?
+4. Welche max. Geschwindigkeit muss das System verarbeiten können?
+5. Soll das System nachts funktionieren?
+6. Minimaler Lärmpegel?
+7. Wie viele Fahrzeuge gleichzeitig
+8. Wie viele Spuren gleichzeitig?
+9. Wetterverähltnisse/ Temperatur?
+10. Erweiterbarkeit?
+11. Bedienbarkeit?
+12. Redudanz?
+13. Sollen wir Mobil Sein?
+14. Umweltschutz, Recyclefähigkeit?
+15. Messtoleranzen?
+16. Fehlerwahrscheinlichkeit
+17. Fernweartung/Zugriff?
+18. Service?
+19. Messfrequenz?
+19. Dokumentation?
+20. Welche Möglichkeiten haben wir in der Werkstatt
+

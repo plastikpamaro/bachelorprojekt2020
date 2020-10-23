@@ -1,0 +1,30 @@
+\documentclass[a4paper]{scrartcl}
+
+\usepackage[T1]{fontenc} 
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{pdflscape}
+\usepackage{pdfpages}
+\usepackage{latexsym}
+\usepackage{color}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks,linkcolor = blue]{hyperref}
+\usepackage{siunitx}  
+\sisetup{locale = DE}
+\usepackage{enumitem}
+
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2cm]{geometry}
+
+%Hintergrundbild der Titelseite
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{background.png}%
+\vfill
+}}}

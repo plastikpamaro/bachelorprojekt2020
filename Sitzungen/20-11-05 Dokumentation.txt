@@ -1,0 +1,12 @@
+Dokumentation 05.11.20
+
+Bachelorprojekt
+
+Anwesend: Alle
+
+Aufgaben:
+1. Schaltbild Verbindung Mikrofon-RasPi
+2. Firmwareablauf
+3. Design Produkt ohne Mikrofonplatzierung
+4. RAW Daten auf den RasPi bekommen
+5. Kamera anschließen

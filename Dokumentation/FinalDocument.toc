@@ -4,4 +4,6 @@
 \contentsline {section}{\numberline {3}Zusammenfassung der Aufgabenstellung}{3}{section.3}%
 \contentsline {section}{\numberline {4}Brainstorming}{4}{section.4}%
 \contentsline {section}{\numberline {5}Meeting 22. 10. 2020}{7}{section.5}%
-\contentsline {section}{\numberline {6}Anforderungsliste}{9}{section.6}%
+\contentsline {section}{\numberline {6}Anforderungsanalyse}{9}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Lastenheft}{9}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Pflichtenheft}{9}{section.7}%

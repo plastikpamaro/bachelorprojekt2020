@@ -1,0 +1,16 @@
+Dokumentation 19.11.20
+
+Bachelorprojekt
+
+Anwesend: Heiko, Philipp, Rettig
+
+Fragen: 
+-Wie werden die Mirkofone angeschlossen?
+
+Antworten: 
+-Siehe VerschaltungMikrofone.pdf
+-Auflösung: 7m Straße in evtl. 7 oder 14 Segmente Teilen
+-Mikrofone auf Schiene befestigen um Verschieben zu ermöglichen
+-Schiene 1m lang um genügend Spielraum zu haben
+-Mirkofone auch in regelmäßigen Abständen auf Schiene
+-Bauraum von 10x10x10 wäre schön, 30 eher unser Ziel

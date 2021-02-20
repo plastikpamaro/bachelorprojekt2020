@@ -1,0 +1,187 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[german]{babel}			%Sprache auf deutsch setzten
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{caption}
+\usepackage[pdftex]{graphicx}				%für das Einfügen von Bildern
+\usepackage{subfigure}
+\usepackage{tabularx, booktabs}
+\usepackage{trfsigns}
+\usepackage{scrpage2}
+\usepackage{ngerman}
+\usepackage{german}
+\usepackage{setspace}				%Für den Abstand der einzelnen Zeilen
+\usepackage{rotating}
+\usepackage{comment}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{float}
+
+\usepackage[usegeometry]{typearea}
+\usepackage{blindtext}
+
+\usepackage[export]{adjustbox}
+
+\usepackage{listings}	% code einbinden
+\usepackage{color}	% Colors
+\definecolor{DarkPurple}{rgb}{0.4,0.1,0.4}
+\definecolor{LightLime}{rgb}{0.3,0.5,0.4}
+\definecolor{Blue}{rgb}{0.0,0.0,1.0}
+\usepackage{beramono}
+
+\lstdefinestyle{styleNP}
+{
+	language=C,
+	columns=flexible,
+	numbers=left,
+	frame=single,
+	frameround=tttt,
+	showstringspaces=false,						% 
+	basicstyle=\tiny\ttfamily,				% Schriftgröße verkleiner, weichere Darstellung	\scriptsize \tiny
+	keywordstyle=\bfseries\color{DarkPurple},	% Farbe für while, for, etc.
+	commentstyle=\itshape\color{LightLime},		% Farbe für Kommentare
+	stringstyle=\color{Blue},					% Farbe für Strings
+	breaklines=true,							% Zeilenumbruch
+	%stepnumber=2,
+	%numbersep=4mm,
+	%tabsize=4,
+	%escapeinside={(*@}{@*)},
+	captionpos=b                    			% sets the caption-position to bottom
+}
+
+
+\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
+
+\usepackage{pgfplots}
+\usepackage{nameref}
+\usepackage{color}
+
+\usepackage[top=1.3in, bottom=1.3in, left=1in, right=1in]{geometry}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,
+				trees,
+				positioning,
+				arrows,
+				chains,
+				%shapes.geometric,
+				decorations.pathreplacing,
+				decorations.pathmorphing,
+				shapes,
+				matrix,
+				shapes.symbols,
+				automata}
+
+\usepackage{tikz-timing}[2014/10/29]
+\usetikztiminglibrary{clockarrows}
+\usepackage{xparse} % NewDocumentCommand, IfValueTF, IFBooleanTF
+\NewDocumentCommand{\busref}{som}{\texttt{%
+		#3%
+		\IfValueTF{#2}{[#2]}{}%
+		\IfBooleanTF{#1}{\#}{}%
+}}
+\usetikzlibrary{circuits.ee.IEC}
+\newcommand\Ground{%
+	\mathbin{\text{\begin{tikzpicture}[circuit ee IEC,yscale=0.6,xscale=0.5]
+			\draw (0,2ex) to (0,0) node[ground,rotate=-90,xshift=.65ex] {};
+			\end{tikzpicture}}}%
+}
+
+\setlength{\parindent}{0pt}
+
+\usepackage{fancyvrb} % to be able to use Verbatim
+
+\begin{document}
+		
+		\begin{titlepage}
+				
+				\begin{center}
+						
+						\includegraphics[width=0.5\textwidth]{HawLogo.png}
+						\\[1.5cm]
+						\LARGE Acoustic Camera
+						
+						\newcommand{\HRule}{\rule{\linewidth}{0.5 mm}}
+						\HRule \\[0.3cm]
+						{\huge \bfseries Stage 1 - Filter Design} \\[0.3cm]
+						\HRule \\[1.5cm]
+						
+						\begin{minipage}{0.4\textwidth}
+								\begin{flushleft}
+										\large \emph{Autor:}\\
+										J.Sebastian \textsc{Frisch}
+									\end{flushleft}
+							\end{minipage}
+						\hfill
+						\begin{minipage}{0.4\textwidth}
+%								\begin{flushright}
+%										\large \emph{Professor:}\\
+%										Prof. Dr.-Ing. \textsc{Robert Fitz}
+%										
+%								\end{flushright}
+						\end{minipage}
+						
+						%\begin{flushleft}
+						%	\begin{minipage}{0.4\textwidth}
+						%		\large \emph Gruppenmitglieder:\\
+						%		J. Sebastian \textsc{Frisch}
+						%	\end{minipage}
+						%\end{flushleft}
+						\vfill
+						
+						{\large \today}
+					\end{center}
+				
+			\end{titlepage}
+		
+		\newpage
+		\setcounter{page}{1}
+		\pagenumbering{roman}
+		%\listoffigures
+		
+		%\newpage
+		%\listoftables
+		
+		\newpage
+		\pagenumbering{arabic}
+		%\clearpage
+		%\thispagestyle{empty}
+		%\phantom{a}
+		%\vfill
+		%\newpage
+		%\addtocounter{page}{-2} %Zählt blank page und Inhalt nicht mit in Nummerierung
+		
+		\pagestyle{scrheadings} %Hier ohne Seitenzahl
+		\setheadsepline{0.4pt}	
+		\ihead{Frisch}
+		\ohead{\includegraphics[width=0.215\textwidth]{HawLogo.png}}
+		\setfootsepline{0.4pt}
+		\ifoot{\today}
+		
+		\tableofcontents
+		\newpage
+		\newpage
+		
+		\setcounter{page}{1}
+		
+		\pagestyle{scrheadings} %Hier mit Seitenzahl
+		\setheadsepline{0.4pt}	
+		\ihead{Frisch}
+		\ohead{\includegraphics[width=0.215\textwidth]{HawLogo.png}}
+		\setfootsepline{0.4pt}
+		\ifoot{\today}
+		\ofoot{\pagemark}
+		
+		\include{Inhalt}
+		\include{Anhang}
+	
+		%\bibliography{Stage2_RPI}{}
+		%\bibliographystyle{plain}
+		
+	
+
+\end{document}

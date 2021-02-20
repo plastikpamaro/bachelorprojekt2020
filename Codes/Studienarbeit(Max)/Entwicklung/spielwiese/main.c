@@ -113,7 +113,7 @@ int main()
         
  
     
-   
+	// Ab hier arbeiten wir dann
       
         
     /* cplx L = 1024;

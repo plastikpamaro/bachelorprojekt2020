@@ -16,12 +16,12 @@
 
 #ifdef __cplusplus
 extern "C" {
-#endif
+	#endif
 
-void create_pipe(int* input_fifo_filestream);
+	void create_pipe(int* input_fifo_filestream);
 
 
-#ifdef __cplusplus
+	#ifdef __cplusplus
 }
 #endif
 

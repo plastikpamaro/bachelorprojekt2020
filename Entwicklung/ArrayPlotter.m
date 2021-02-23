@@ -1,0 +1,47 @@
+%plot Arrays
+N = length(mic0); %sample length
+fs = 24000; % sample rate (Hz)´
+timeArray = linspace(0,N/fs,N)*1000;
+fig = figure();
+a = subplot(6,1,1);
+plot(timeArray,mic0);
+hold on;
+plot([15.51,15.51],[1e7,-1e7],'red');
+hold off;
+xlim([0,max(timeArray)]);
+setGraph;
+subplot(6,1,2);
+plot(timeArray,mic1);
+hold on;
+plot([15.51,15.51],[1e7,-1e7],'red');
+hold off;
+xlim([0,max(timeArray)]);
+setGraph;
+subplot(6,1,3);
+plot(timeArray,mic2);
+hold on;
+plot([15.51,15.51],[1e7,-1e7],'red');
+hold off;
+xlim([0,max(timeArray)]);
+setGraph;
+subplot(6,1,4);
+plot(timeArray,mic3);
+hold on;
+plot([15.51,15.51],[1e7,-1e7],'red');
+hold off;
+xlim([0,max(timeArray)]);
+setGraph;
+subplot(6,1,5);
+plot(timeArray,mic4);
+hold on;
+plot([15.51,15.51],[1e7,-1e7],'red');
+hold off;
+xlim([0,max(timeArray)]);
+setGraph;
+subplot(6,1,6);
+plot(timeArray,mic5);
+hold on;
+plot([15.51,15.51],[1e7,-1e7],'red');
+hold off;
+xlim([0,max(timeArray)]);
+setGraph;

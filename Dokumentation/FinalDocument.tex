@@ -1,8 +1,10 @@
 \input{packages}
 
-%\usepackage{showframe}
+\usepackage{showframe}
 
 \begin{document}
+
+\pagenumbering{Roman}
 
 \input{titlepage}
 \input{impressum}
@@ -10,7 +12,7 @@
 \thispagestyle{empty}
 \newpage
 
-\setcounter{page}{1}
+\pagenumbering{arabic}
 
 \input{Sections/Vorwort/Vorwort}
 
@@ -47,4 +49,7 @@ git push & auf den Sever schieben\\
 \input{Sections/Anforderungsanalyse/Anforderungsanalyse}
 
 \input{Sections/Pflichtenheft/Pflichtenheft}
+
+\input{Sections/Konstruktion_des_Aufbaus/Konstruktion_des_Aufbaus}
+
 \end{document}

@@ -13,6 +13,7 @@
 
 #include "cameraControl.h"
 #include <ctime>
+#include <time.h>
 #include <fstream>
 #include <iostream>
 #include <raspicam/raspicam.h>
@@ -30,6 +31,14 @@ cameraControl::cameraControl() {
     //wait a while until camera stabilizes
     cout<<"Sleeping for 3 secs"<<endl;
     usleep(3);
+	
+	// date and time for picture name (needs time.h!!!!)
+	time_t rawtime;
+	struct tm* timeinfo;
+	char buffer[20];
+	time (&rawtime);
+	timeinfo = localtime (&rawtime);
+	strftime (buffer,20,"%Y_%m_%d_%H_%M_%S.ppm);	
 }
 
 void cameraControl::takePicture() {
@@ -39,7 +48,7 @@ void cameraControl::takePicture() {
     //extract the image in rgb format
     Camera.retrieve ( data,raspicam::RASPICAM_FORMAT_IGNORE );//get camera image
     //save
-    std::ofstream outFile ( "teures_Foto.ppm",std::ios::binary );
+    std::ofstream outFile ( strftime,std::ios::binary );
     outFile<<"P6\n"<<Camera.getWidth() <<" "<<Camera.getHeight() <<" 255\n";
     outFile.write ( ( char* ) data, Camera.getImageTypeSize ( raspicam::RASPICAM_FORMAT_RGB ) );
     cout<<"saved as 'teures_Foto.ppm'"<<endl;

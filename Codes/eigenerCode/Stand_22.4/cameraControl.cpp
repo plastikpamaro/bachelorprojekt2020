@@ -35,10 +35,10 @@ cameraControl::cameraControl() {
 	// date and time for picture name (needs time.h!!!!)
 	time_t rawtime;
 	struct tm* timeinfo;
-	char buffer[20];
+	char buffer[40];
 	time (&rawtime);
 	timeinfo = localtime (&rawtime);
-	strftime (buffer,20,"%Y_%m_%d_%H_%M_%S.ppm);	
+	strftime (buffer,40,"%Y_%m_%d_%H_%M_%S.ppm);	
 }
 
 void cameraControl::takePicture() {

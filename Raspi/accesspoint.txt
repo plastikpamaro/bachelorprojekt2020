@@ -1,0 +1,33 @@
+sudo apt-get install hostapd
+
+sudo nano /etc/hostapd/hostapd.conf
+
+interface=wlan1
+
+#If this fails, try rt1871xdrva 
+driver=nl80211
+
+ssid=wifipi !!!
+channel=6
+# Change to b for older devices?
+hw_mode=g
+macaddr_acl=0
+auth_algs=3
+ignore_broadcast_ssid=0
+
+#Verschlüsselung?
+wpa=2
+wpa_passphrase="RaspberryWiFi"
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+
+#abspeichern
+
+sudo nano /etc/default/hostapd
+
+DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+#abspeichern
+
+sudo update-rc.d hostapd enable

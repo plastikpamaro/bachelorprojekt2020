@@ -1,14 +1,10 @@
 \babel@toc {ngerman}{}
 \contentsline {section}{\numberline {1}Vorwort}{1}{section.1}%
-\contentsline {section}{\numberline {2}Git}{2}{section.2}%
-\contentsline {section}{\numberline {3}Zusammenfassung der Aufgabenstellung}{3}{section.3}%
-\contentsline {section}{\numberline {4}Brainstorming}{4}{section.4}%
-\contentsline {section}{\numberline {5}Meeting 22. 10. 2020}{6}{section.5}%
-\contentsline {section}{\numberline {6}Anforderungsanalyse}{8}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Lastenheft}{8}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Pflichtenheft}{8}{section.7}%
-\contentsline {section}{\numberline {8}Konstruktion des Aufbaus}{9}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Basisstativ}{9}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Mikrofongehäuse}{10}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Unterbringung der Steuereinheit}{10}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Positionierung der Baugruppen entlang eines Arrays}{11}{subsection.8.4}%
+\contentsline {section}{\numberline {2}Zusammenfassung der Aufgabenstellung}{2}{section.2}%
+\contentsline {section}{\numberline {3}Umgebungssituation}{3}{section.3}%
+\contentsline {section}{\numberline {4}Konstruktion des Aufbaus}{4}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Basisstativ}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Mikrofongehäuse}{4}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Unterbringung der Steuereinheit}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Positionierung der Baugruppen entlang eines Arrays}{5}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Fazit}{6}{section.5}%

@@ -5,6 +5,6 @@
 \contentsline {section}{\numberline {4}Konstruktion des Aufbaus}{4}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Basisstativ}{4}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Mikrofongehäuse}{4}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Unterbringung der Steuereinheit}{5}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Positionierung der Baugruppen entlang eines Arrays}{6}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Fazit}{7}{section.5}%
+\contentsline {subsection}{\numberline {4.3}Unterbringung der Steuereinheit}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Positionierung der Baugruppen entlang eines Arrays}{7}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Fazit}{8}{section.5}%

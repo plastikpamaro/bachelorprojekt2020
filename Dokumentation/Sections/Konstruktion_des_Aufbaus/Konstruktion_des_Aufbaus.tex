@@ -4,7 +4,7 @@ Für ein ressourcenschonendes Arbeiten ist es von großer Bedeutung neben den Me
 
 \subsection{Basisstativ}
 
-In dem Labor \glqq Urban Mobility Lab\grqq\ liegt bereits das Fotostativ <Modell einfügen> bereit und kann verwendet werden. Herausfordernd kommt aber hinzu, dass sich ein 1/4\grqq\ Gewinde auf der Montageplatte befindet. Die folgenden Möglichkeiten zum Umgang mit dem Gewinde wurden diskutiert:
+In dem Labor \glqq Urban Mobility Lab\grqq\ liegt bereits das Fotostativ Manfrotto 055 bereit und kann verwendet werden. Herausfordernd kommt aber hinzu, dass sich ein 1/4\grqq\ Gewinde auf der Montageplatte befindet. Die folgenden Möglichkeiten zum Umgang mit dem Gewinde wurden diskutiert:
 
 \begin{itemize}
 	\item Nutenstein mit 1/4\grqq\ Innengewinde
@@ -55,20 +55,49 @@ In der ersten Version dieser Gehäuse (\autoref{fig:Mikrofongehäuse_V_0.1}) sol
 Nach dem Druck der sechs Gehäuse stellte sich heraus, dass:
 
 \begin{enumerate}
-	\item die gedruckten Stifte nicht zylindrisch und senkrecht sind
-	\item der Durchmesser der Stifte mit den Durchmessern der Hüllen des Deckels nicht übereinstimmen
-	\item viele druckbedingte Fäden an den Stiften beseitigt werden müssen
+	\item die gedruckten Stifte nicht maßhaltig sind
+	\item die Löcher im Deckel nicht maßhaltig sind
+	\item viele druckbedingte Fäden an den Teilen beseitigt werden müssen
 \end{enumerate}
 
 An der gedruckten Geometrie lässt sich im Nachgang nicht mehr viel bearbeiten, lediglich die Hülsen im Gehäusedeckel können aufgebohrt werden. Die Erfahrung hat aber gezeigt, dass das verwendete Filament vor allem an den Kontaktflächen der einzelnen Layer zu porös ist und beim Aufbohren sehr schnell bricht. Alle Gehäuse wurden entsorgt.
 
-Für die zweite Version der Gehäuse wurden die Stifte im Unterteil und die Hülsen im Deckel entfernt. Im Unterteil sind nun Sechskantaufnahmen für vier M2.5 Muttern und im Deckel Durchgangslöcher für entsprechend Lange Zylinderkopfschrauben. Durch Einpressen und Verkleben werden die Muttern nach dem Druck in die richtige Position gebracht, die Platine aufgelegt und das Gehäuse durch Anziehen der vier Schrauben geschlossen. Nach dem Druck eines neuen Prototyps wurde die Brauchbarkeit analysiert und das Gehäuse für die Massenproduktion freigegeben. Nachteilig ist, dass mit ausreichend großer Zugkraft die Gehäusedeckel trotz Verschraubung geöffnet werden können, zudem wirken die vier Schrauben etwas überdimensioniert. In einer zweiten Überarbeitung sollten diese beiden Punkte noch überarbeitet werden. (Abbildung einfügen)
+\newpage
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.2]{Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2}
+	\end{center}
+	\caption{Mikrofongehäuse V 0.2}
+	\label{fig:Mikrofongehäuse_V_0.2}
+\end{figure}
+
+Für die zweite Version (\autoref{fig:Mikrofongehäuse_V_0.2}) der Gehäuse wurden die Stifte im Unterteil und die Hülsen im Deckel entfernt. Im Unterteil sind nun Sechskantaufnahmen für vier M2.5 Muttern und im Deckel Durchgangslöcher für entsprechend Lange Zylinderkopfschrauben. Durch Einpressen und Verkleben werden die Muttern in Position gehalten.
+
+Die Mikrofonplatine wird auf die Flächen auf die Flächen oberhalb der Mutter aufgelegt und das Gehäuse durch Anziehen der vier Schrauben verschlossen. Nach dem Druck eines neuen Prototyps wurde die Brauchbarkeit analysiert und das Gehäuse für die Massenproduktion freigegeben. Nachteilig ist, dass mit ausreichend großer Zugkraft die Gehäusedeckel trotz Verschraubung geöffnet werden können, zudem wirken die vier Schrauben etwas überdimensioniert. In einer zweiten Überarbeitung sollten diese beiden Punkte beachtet werden.
 
 \subsection{Unterbringung der Steuereinheit}
 
-Für den Raspberry Pi 4, die Kamera und die Powerbank soll eine vorhandene wasserfeste Installationsbox verwendet werden (Modellbeschreibung einfügen). Das Hauptproblem war, die große Powerbank in der Box zu plazieren, daher wurde entschlossen eine neue Box zu bestellen (Modell einfügen). Für die sichere Positionierung aller Bauteile wird wieder auf die 3D-Druck-Technologie zurückgegriffen und ein Innenleben konstruiert.
+Für den Raspberry Pi 4, die Raspicam <Modell einfügen> und die Powerbank Powerbank PLUS MacBook 20.100 mAh Space Grey sollte eine vorhandene wasserfeste Installationsbox verwendet werden <Modellbeschreibung einfügen>. Das Hauptproblem dabei war, die zu Powerbank in der Box zu plazieren, daher wurde sich entschlossen, eine neue Installationsbox zu bestellen (Hammond Manufacturing 1555VAL2GY). Für die sichere Positionierung aller Bauteile wird wieder auf die 3D-Druck-Technologie zurückgegriffen und ein Innenleben konstruiert.
 
-Nach der ersten Konstruktion stellte sich heraus, dass die neu besorgte Installationsbox zu niedrig für das Innenleben ist, so dass bei einem Teamreview eine alternative Anordnung der Komponenten dazu führte, dass die besorgte Box verwendet werden kann. (Abbildungen einfügen)
+Nach der ersten Konstruktion stellte sich heraus, dass die neu besorgte Installationsbox zu niedrig für das Innenleben ist und die USB Kontakte des Rapsberry Pi 4 durch den Deckel stoßen (\autoref{fig:Schnitt_Installationsbox_V_0.1}). In einem Teamreview wurde eine mögliche Lösung entwickelt, bei der der Raspberry Pi 4 sowohl \ang{180} um die Längs-, als auch \ang{90} im Uhrzeigersinn um die Querachse gedreht, eingebaut werden sollte. Nach der Neukostruktion und der Ergänzung einer Stützkonstruktion für den Raspberry Pi 4, war es möglich in der Installationsbox alle Bauteile zu platzieren, ohne eine erneute Neuanschaffung zu tätigen. (\autoref{fig:Schnitt_Installationsbox_V_0.2})
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.25]{Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.1}
+	\end{center}
+	\caption{Schnitt Installationsbox V 0.1}
+	\label{fig:Schnitt_Installationsbox_V_0.1}
+\end{figure}
+
+
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.25]{Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.2}
+	\end{center}
+	\caption{Schnitt Installationsbox V 0.2}
+	\label{fig:Schnitt_Installationsbox_V_0.2}
+\end{figure}
 
 \subsection{Positionierung der Baugruppen entlang eines Arrays}
 

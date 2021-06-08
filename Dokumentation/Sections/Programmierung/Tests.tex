@@ -1,0 +1,173 @@
+\section{Tests}
+\label{sec:tests}
+
+\subsection{Verbindungstest von ROS und Controller}
+\subsubsection{Durchführung des Tests}
+\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
+	%	\hline
+	%	\textbf{Abschnitt} & \textbf{Inhalt}\\
+	\hline
+	\textbf{Name} & Verbindung ROS und Controller\\
+	\hline
+	\textbf{Autor(en)} & Heiko Nöldeke \\
+	\hline
+	\textbf{Priorität} & hoch\\	
+	\hline	
+	\textbf{Kritikalität} & hoch\\
+	%	\hline
+	%	\textbf{Quelle} & \\
+	\hline
+	\textbf{Verantwortlicher} & Heiko Nöldeke\\
+	\hline
+	\textbf{Kurzbeschreibung} & \makecell[tl]{Mit diesem Test soll die fehlerfreie Kommunikation zwischen\\dem ROS und dem Controller getestet werden.} \\
+	\hline
+	\textbf{Auslösendes Ereignis} &  \makecell[tl]{Eingabe Konsole:\\rosrun joy joy\_node\\Eingabe in zweiter Konsole:\\rostopic echo joy}\\
+	\hline
+	\textbf{Akteure} & Raspberry, Xbox Controller, User\\
+	\hline
+	\textbf{Vorbedingung} & Konsole für Eingabe vorbereitet\\
+	\hline
+	\textbf{Nachbedingung} & Konsole für weitere Eingaben bereit\\
+	\hline
+	\textbf{Ergebnis} & \makecell[tl]{std\_msgs/Header header\\float32[] axes\\int32[] buttons}\\
+	\hline
+	%	\textbf{Hauptszenario} & \makecell[tl]{text}\\
+	%	\hline
+	%	\textbf{Alternativszenario} & \\
+	%	\hline
+	%	\textbf{Ausnahmeszenario} & \\
+	%	\hline
+	%	\textbf{Qualitäten} & \\
+	%	\hline
+\end{tabularx}
+\captionof{table}{Test Case Verbindung ROS und Controller}
+\label{tab:TestCaseROSController}
+\vspace{0.2cm}
+\subsubsection{Beobachtungen}
+Der Test ist erfolgreich, somit ist keine Nacharbeit notwendig.
+
+\newpage
+
+\subsection{Verbindungstest von ROS und Arduino}
+\subsubsection{Durchführung des Tests}
+\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
+	%	\hline
+	%	\textbf{Abschnitt} & \textbf{Inhalt}\\
+	\hline
+	\textbf{Name} & Verbindung ROS und Arduino\\
+	\hline
+	\textbf{Autor(en)} & Heiko Nöldeke \\
+	\hline
+	\textbf{Priorität} & hoch\\	
+	\hline	
+	\textbf{Kritikalität} & hoch\\
+	%	\hline
+	%	\textbf{Quelle} & \\
+	\hline
+	\textbf{Verantwortlicher} & Heiko Nöldeke\\
+	\hline
+	\textbf{Kurzbeschreibung} & \makecell[tl]{Mit diesem Test soll die fehlerfreie Kommunikation zwischen\\ dem ROS und dem Arduino getestet werden.} \\
+	\hline
+	\textbf{Auslösendes Ereignis} &  \makecell[tl]{Eingabe Konsole:\\rosrun rosserial\_python serial\_node.py /dev/ttyACM0\\Eingabe in zweiter Konsole:\\rostopic pub servo std\_msgs/UInt16 <Servowert>}\\
+	\hline
+	\textbf{Akteure} & Raspberry, Arduino, Servo, User\\
+	\hline
+	\textbf{Vorbedingung} & Konsole für Eingabe vorbereitet\\
+	\hline
+	\textbf{Nachbedingung} & Konsole für weitere Eingaben bereit\\
+	\hline
+	\textbf{Ergebnis} & Servo um eingegebenen Winkel verstellt\\
+	\hline
+	%	\textbf{Hauptszenario} & \makecell[tl]{text}\\
+	%	\hline
+	%	\textbf{Alternativszenario} & \\
+	%	\hline
+	%	\textbf{Ausnahmeszenario} & \\
+	%	\hline
+	%	\textbf{Qualitäten} & \\
+	%	\hline
+\end{tabularx}
+\captionof{table}{Test Case Verbindung ROS und Arduino}
+\label{tab:TestCaseROSArduino}
+\vspace{0.2cm}
+
+Um die Kommunikation zwischen Arduino und ROS auf dem Raspberry Pi zu testen, bietet sich an, ein kleines Beispiel aus der installierten Bibliothek zu nutzen. Nachdem im Projekt ein Servo zum Lenken verwendet wird, wurde das Beispiel \glqq ServoControl\grqq\ aus der ros\_lib ausgewählt und vor dem Test auf den Arduino aufgespielt.
+\subsubsection{Beobachtungen}
+Der Test ist erfolgreich, somit ist keine Nacharbeit notwendig.
+
+\subsection{Störempfindlichkeitstest der Contollereingaben}
+\subsubsection{Durchführung des Tests}
+\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
+	%	\hline
+	%	\textbf{Abschnitt} & \textbf{Inhalt}\\
+	\hline
+	\textbf{Name} & Störempfindlichkeitstest der Contollereingaben\\
+	\hline
+	\textbf{Autor(en)} & Heiko Nöldeke, Philipp Otto \\
+	\hline
+	\textbf{Priorität} & hoch\\	
+	\hline	
+	\textbf{Kritikalität} & hoch\\
+	%	\hline
+	%	\textbf{Quelle} & \\
+	\hline
+	\textbf{Verantwortlicher} & Heiko Nöldeke\\
+	\hline
+	\textbf{Kurzbeschreibung} & \makecell[tl]{Mit diesem Test soll die fehlerfreie Eingabe und daraus\\resultierende Aktoransteuerung getestet werden.} \\
+	\hline
+	\textbf{Auslösendes Ereignis} &  \makecell[tl]{Eingabe Controller und keine Eingabe Controller}\\
+	\hline
+	\textbf{Akteure} & Raspberry, Arduino, Servo, User, Controller\\
+	\hline
+	\textbf{Vorbedingung} & System für den Fernsteuerungsbetrieb einsatzbereit\\
+	\hline
+	\textbf{Nachbedingung} & System für Fernsteuerung oder autonomen Betrieb einsatzbereit\\
+	\hline
+	\textbf{Ergebnis} & Aktoransteuerung entspricht der Eingabe\\
+	\hline
+	%	\textbf{Hauptszenario} & \makecell[tl]{text}\\
+	%	\hline
+	%	\textbf{Alternativszenario} & \\
+	%	\hline
+	%	\textbf{Ausnahmeszenario} & \\
+	%	\hline
+	%	\textbf{Qualitäten} & \\
+	%	\hline
+\end{tabularx}
+\captionof{table}{Test Case Störempfindlichkeitstest der Contollereingaben}
+\label{tab:TestCaseStoerEmpf}
+\vspace{0.2cm}
+
+\subsubsection{Beobachtungen}
+Es ist aufgefallen, dass die Aktoren im Auto selbstständig kleinste Auslenkungen betreiben. Sowohl die Lenkung schlägt unbeabsichtigt ein als auch der Motor bewegt sich immer wieder kurzzeitig, sodass das Auto einen Satz macht.
+
+\subsubsection{Fehlerursachen}
+
+Als mögliche Ursachen fallen nach einiger Recherche folgende Dinge an:
+\begin{itemize}
+	\item durch Verschleiß am Controller auftretenderer Drift an den Joysticks
+	\item der selbstgeschriebene Node xbox\_maks published falsche Werte
+	\item mutige Annahme: Baudrate zu hoch
+\end{itemize}
+
+\subsubsection{Untersuchung Fehlerursachen}
+\begin{enumerate}
+	\item Durch Verschleiß am Controller auftretender Drift: Nachdem durch die Befehle 
+	\begin{enumerate}[label=\arabic*.]
+		\item rosrun joy joy\_node
+		\item rostopic echo joy
+	\end{enumerate}
+	Die Eingabewerte des Controllers auf der Konsole sichtbar gemacht wurden, wurde durch Kontrolle der Werte schnell der Drift erkannt. Als Folge wurde der Controller durch einen anderen vom gleichen Typ ausgetauscht und erneut die oben genannten Befehle ausgeführt. Der Drift ist verschwunden, das unbeabsichtigte und unkontrollierte Zucken bleibt aber bei beiden Aktoren vorhanden. Das Gesamtsystem ist jetzt genauer, das ursprüngliche Problem besteht weiterhin.
+	\item Der selbstgeschriebene Node xbox\_mask published falsche Werte: Mit den Befehlen können die Werte des Nodes xbox\_mask durch eine Sichtprüfung auf der Konsole beurteilt werden. 
+	\begin{enumerate} [label=\arabic*.]
+		\item rosrun joy joy\_node
+		\item rosrun xbox\_mask xbox\_mask
+		\item rostopic echo xbox\_mask
+	\end{enumerate}
+	Die Eingaben am Controller verursachen plausible Ausgaben des Nodes xbox\_mask. Diese Ursache kann damit ausgeschlossen werden.
+	\item Baudrate zu hoch: Durch Erstellen der Launchdatei für alle notwendigen Nodes kann bezüglich der seriellen Kommunikation zwischen Arduino und Raspberry eine selbstgewählte Baudrate eingestellt werden. Entsprechend muss diese auch im Arduino-Code angepasst werden. Gewählt wurde die kleinstmögliche Rate(300). Durch erneute Ausführung der Untersuchungsschritte ist eine deutliche Reduktion der Störungen zu beobachten. Es erscheint möglich, dass der Arduino durch das Einlesen überarbeitet ist, dadurch das Einlesen des Werts nicht korrekt abläuft und damit z.B. in einer Nachricht eine Stelle zu viel und in der darauffolgenden diese Stelle zu wenig eingelesen wird.
+\end{enumerate}
+
+\subsection{Fazit der Tests}
+
+Diese drei Tests reichen aus, um die Funktionalität der Fernsteuerung zu überprüfen. Eine genauere Untersuchung der verbleibenden Störungen der Aktoren würde den Rahmen des Projekts sprengen, daher wurde entschieden, mit den noch verbleibenden, aber akzeptablen Störungen, weiterzuarbeiten.

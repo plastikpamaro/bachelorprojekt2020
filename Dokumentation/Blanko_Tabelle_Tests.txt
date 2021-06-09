@@ -1,5 +1,3 @@
-\section{Programmierung}
-
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
 	\textbf{Abschnitt} & \textbf{Inhalt}\\
@@ -39,5 +37,3 @@
 \end{tabularx}
 \captionof{table}{}
 \label{tab:}
-
-\newpage

@@ -1,66 +1,161 @@
 \section{Programmierung}
 
+\subsection{Programmablauf}
+
+Der Programmablauf wird in diesem Abschnitt Schritt für Schritt erklärt und anhand geeigneter Diagramme dargestellt. Zu einer genauen Übersicht des Ablaufes ist der Flowchart des Programmes (\autoref{fig:MainFlowchart}) hilfreich. Nun eine chronologische Erklärung der Programmteile.
+
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[scale=0.1]{Sections/Programmierung/MainFlowchart}
+%	\end{center}
+%	\caption{Main Flowchart}
+%	\label{fig:MainFlowchart}
+%\end{figure}
+
+
+\subsubsection{doaV2}
+
+Nach dem Programmaufruf wird die DOA Konfiguration, bestehend aus vorberechneten Werten, ausgelesen. Dies wird durch die doaV2 Klasse mithilfe der loadPrecalculatedValues Methode ermöglicht (s. Figure 1).
+
+Hier wird zunächst die Konfigurationsdatei geöffnet. Nun werden für alle möglichen Mikrofonpaare alle vorberechneten Laufzeiten aller möglichen Winkel eingelesen und in das Array precalculatedCompareValues abgespeichert. Zuletzt wird der Zugriff auf die Datei gestoppt. Die DOA Klasse beinhaltet auch die Berechnung des Ursprungsortes eines Geräusches, auf die im späteren Programmverlauf weiter eingegangen wird.
+
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[scale=0.1]{Sections/Programmierung/doav2}
+%	\end{center}
+%	\caption{doav2}
+%	\label{fig:doav2}
+%\end{figure}
+
+
+\subsubsection{create\_pipe}
+
+Nach dem Laden der Laufzeiten wird mithilfe der create\_pipe Methode ein FIFO angelegt, mit dem die Echtzeitmessungen zur Datenverarbeitung weitergegeben werden.
+
+\subsubsection{updateValues}
+
+Diese Methode stellt sicher, dass der Daten Buffer nach jedem FIFO Zyklus neu gefüllt ist. Die Methode bestimmt zuerst das Maximum an gemessenen Werten aus einem Zyklus und schreibt sie dann mithilfe der \textit{fastAddValue} Methode im Signed UInt32 Format in den Speicher
+
+\subsubsection{processFFT}
+
+Eine einfache \glqq Fast Fourier Transformation\grqq, die ein Array an komplexen Gleitkommazahlen ausgibt. Mithilfe dieser Fouriertransformation ist es möglich, die Intensität der Geräusche von der zwischengespeicherten Aufnahme herauszufinden, um diese zu vergleichen.
+
+
+\subsubsection{getDataForSoundDetect}
+
+Im Programmablauf folgt diese einfache Getter-Methode, um die gepufferten Daten aus dem FIFO zur Weiterverarbeitung in ein Array zu schieben.
+
+\subsubsection{checkForBang}
+
+Die checkForBang Methode ist eine der wichtigsten im gesamten Programmablauf und sitzt direkt in einer Bedingung. Wenn durch diese Methode ein lautes Signal bestätigt wird, fährt das Programm in der Verarbeitung dieses Signales fort.
+
+Wie in \autoref{fig:checkForBang} zu erkennen, wird anfangs mithilfe der calcEnergy Methode aus derselben Klasse der Unterschied zwischen den Energieniveaus von Geräuschen ausgerechnet. Dies geschieht durch die schon erwähnte FFT. Wenn nun die errechnete Differenz den Wert 600000 überschreitet, kann davon ausgegangen werden, dass ein lautes und beobachtungswertes Event stattgefunden hat, da eine sehr hohe Energiedifferenz zu vorherigen Werten gemessen wurde.
+
+%
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[scale=0.1]{Sections/Programmierung/checkForBang}
+%	\end{center}
+%	\caption{check for bang}
+%	\label{fig:checkForBang}
+%\end{figure}
+
+\subsubsection{getAngle}
+
+Diese Methode ist nun dafür verantwortlich, dem Geräuschevent eine eindeutige Richtung zuzuordnen, um eine Beweisführung zu ermöglichen. Sie ruft zwei weitere wichtige Methoden auf – xcorr und compareValues.
+
+Mithilfe der vorberechneten Korrelationswerte für das Mikrofonarray kann die xcorr Methode verwendet werden, um die Korrelation zweier Signale zu finden.
+
+Mit compareValues werden die Korrelationen verglichen und mit einer einfachen Sortierung die stärksten Übereinstimmungen gefunden, um daraus eine Richtung zu erschließen.
+
+Mehr dazu im Abschnitt des Protokolls, dass auf die Berechnung des Winkels näher eingeht.
+
+\subsubsection{cameraControl}
+
+Die Klasse cameraControl benutzt nun, wenn sich der errechnete Winkel im richtigen Sichtfeld der Kamera befindet, zwei Methoden, um ein Foto zu erstellen und dies so zu bearbeiten, das der Bereich der Schallquelle sichtbar wird. Mithilfe der einfachen Schnittstelle der RaspiCam und dazugehörigen Bibliotheken wird ein Bild im RGB-Format von der Kamera angefordert und abgespeichert. Nun wird mithilfe des errechneten Ergebnisses aus getAngle und OpenCV das Bild bearbeitet, indem durch mehrere else if abfragen zum richtigen Bildsegment iteriert wird und dann dieses Segment mit einem Rechteck hervorgehoben wird.
+
+
+\subsection{Ortung der Geräuschquelle}
+
+Das Orten einer Schallquelle ist im Gegensatz zum Erfassen eines lauten Geräusches deutlich umfangreicher. Hierzu wird die Kreuzkorrelation zwischen allen Mikrofonen untereinander errechnet um diese als Hilfe zu benutzen, um das mathematische Maximum zu berechnen.
+
+Die Kreuzkorrelation ist eine Messung, die die Bewegungen von zwei oder mehr Sätzen von Zeitreihen-Daten relativ zueinander verfolgt. Sie wird verwendet, um mehrere Zeitreihen zu vergleichen und objektiv zu bestimmen, wie gut sie miteinander übereinstimmen und insbesondere, an welchem Punkt die beste Übereinstimmung auftritt. Die Kreuzkorrelation kann auch jegliche Regelmäßigkeiten in den Daten aufdecken.
+
+Betrachten wir als Beispiel zwei reellwertige Funktionen $ f $ und $ g $, die sich nur durch eine unbekannte Verschiebung entlang der x-Achse unterscheiden. Man kann die Kreuzkorrelation verwenden, um herauszufinden, um wie viel $ g $ entlang der x-Achse verschoben werden muss, damit es mit $ f $ identisch wird. Die Formel verschiebt im Wesentlichen die Funktion $ g $ entlang der x-Achse, wobei das Integral ihres Produkts an jeder Position berechnet wird. Wenn die Funktionen übereinstimmen, wird der Wert von ($ f \star g $) maximiert. Das liegt daran, dass Spitzen (positive Bereiche), wenn sie übereinstimmen, einen großen Beitrag zum Integral leisten. Ähnlich verhält es sich, wenn sich Talsohlen (negative Bereiche) ausrichten, leisten sie ebenfalls einen positiven Beitrag zum Integral, da das Produkt zweier negativer Zahlen positiv ist. Bei komplexwertigen Funktionen $ f $ und $ g $ stellt die Konjugierte von $ f $ sicher, dass ausgerichtete Spitzen (oder ausgerichtete Talsohlen) mit imaginären Komponenten positiv zum Integral beitragen.
+
+Kreuzkorrelationen sind nützlich für die Bestimmung der Zeitverzögerung zwischen zwei Signalen, z. B. für die Bestimmung von Zeitverzögerungen für die Ausbreitung von akustischen Signalen über ein Mikrofonarray. Nach der Berechnung der Kreuzkorrelation zwischen den beiden Signalen zeigt das Maximum (oder Minimum, wenn die Signale negativ korreliert sind) der Kreuzkorrelationsfunktion den Zeitpunkt an, an dem die Signale am besten ausgerichtet sind; d. h., die Zeitverzögerung zwischen den beiden Signalen wird durch das Argument des Maximums die Kreuzkorrelation bestimmt. Diese mathematische Eigenschaft benutzen wir um mit
+$ \tau= arg\ _{t \in \mathbb{R}}\ max\left(( f \star g)(t)\right) $ den zeitlichen Versatz zu errechnen.
+
+In unserem Fall werden diese Maxima initial in Abhängigkeit der geometrischen Form des Mikrofonarray ausgerechnet. Dann wird in der \textit{xcorr} Methode die maximale Latenz zwischen jeder möglichen Mikrofonpaarung ausgerechnet und diese dann in der compareValues Methode miteinander verglichen. Diese Methode vergleicht nun alle gemessenen Verzögerungen mit den vorher ausgerechneten Verzögerungen, und zwar für jeden möglichen Winkel. Der Winkelbereich mit den größten Übereinstimmungen über alle Mikrofonpaarung, kann mit Sicherheit als der Bereich gekennzeichnet werden, aus dem das Geräusch kommt.
+
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[scale=0.1]{Sections/Programmierung/xcorr}
+%	\end{center}
+%	\caption{xcorr}
+%	\label{fig:xcorr}
+%\end{figure}
+%
+%\begin{figure}[h]
+%	\begin{center}
+%		\includegraphics[scale=0.1]{Sections/Programmierung/compareValues}
+%	\end{center}
+%	\caption{compareValues}
+%	\label{fig:compareValues}
+%\end{figure}
+
+\newpage
+
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
 	\textbf{Abschnitt} & \textbf{Inhalt}\\
 	\hline
-	\textbf{Name} & \\
+	\textbf{Name} & Mikrofonfunktionstest\\
 	\hline
-	\textbf{Autor(en)} & \\
+	\textbf{Autor(en)} & Philipp Otto\\
 	\hline
-	\textbf{Priorität} & \\	
+	\textbf{Priorität} & hoch\\	
 	\hline	
-	\textbf{Kritikalität} &\\
+	\textbf{Kritikalität} & hoch\\
 	\hline
-	\textbf{Quelle} & \\
+%	\textbf{Quelle} & \\
+%	\hline
+	\textbf{Verantwortlicher} & Philipp Otto\\
 	\hline
-	\textbf{Verantwortlicher} & \\
+	\textbf{Kurzbeschreibung} & Mit diesem Test soll die fehlerfreie Funktion der Mikrofone getestet werden\\
 	\hline
-	\textbf{Kurzbeschreibung} & \\
+	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./RecordMicToRAM\grqq
+	\\
 	\hline
-	\textbf{Auslösendes Ereignis} & \\
+	\textbf{Akteure} & Mirkofonpaar, Rasberry Pi, Jumperkabel\\
 	\hline
-	\textbf{Akteure} & \\
+	\textbf{Vorbedingung} & Raspberry eingerichtet, Mikrofone und Raspberry mit Kabel verbunden, Raspberry eingeschaltet\\
 	\hline
-	\textbf{Vorbedingung} & \\
+	\textbf{Nachbedingung} & \glqq RecordMicToRAM\grqq\ beendet,
+	Prüfung der .txt-Datei ist erfolgt
+	\\
 	\hline
-	\textbf{Nachbedingung} & \\
+	\textbf{Ergebnis} & .txt- Datei erstellt\\
 	\hline
-	\textbf{Ergebnis} & \\
+	\textbf{Hauptszenario} & \begin{enumerate}
+								\item Über die Konsoleneingabe wird das Programm gestartet
+								\item Das Programm zeichnet ca. 8 Sekunden lang den Aikrofonausgang auf
+								\item Das Programm erstellt eine .txt-Datei mit allen Messwerten
+								\item Die .txt-Datei wird auf Vollständigkeit überprüft
+							\end{enumerate}\\
 	\hline
-	\textbf{Hauptszenario} &\\
+	\textbf{Alternativszenario} & \begin{enumerate}
+									\item b Die .txt-Datei enthält keine Messwerte
+									\item c Kabelverbindung wird überprüft
+								\end{enumerate}\\
 	\hline
-	\textbf{Alternativszenario} & \\
-	\hline
-	\textbf{Ausnahmeszenario} & \\
-	\hline
-	\textbf{Qualitäten} & \\
+%	\textbf{Ausnahmeszenario} & \\
+%	\hline
+%	\textbf{Qualitäten} & \\
 	\hline
 \end{tabularx}
 \captionof{table}{}
 \label{tab:}
-
-\newpage
-%%[width=\textwidth]
-%\begin{figure}[h]
-%	\includegraphics[scale=0.1]{Sections/Programmierung/Test_1}
-%	\caption{Test 1}
-%	\label{fig:Test_1}
-%\end{figure}
-%
-%\begin{figure}[t]
-%	\includegraphics[scale=0.1]{Sections/Programmierung/Test_1_b}
-%	\caption{Test 1 b}
-%	\label{fig:Test_1_b}
-%\end{figure}
-
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width=\textwidth]{Sections/Programmierung/Test_1_d}
-	\end{center}
-	\caption{Test 1 b}
-	\label{fig:Test_1_b}
-\end{figure}
 
 \begin{figure}[h]
 	\begin{center}

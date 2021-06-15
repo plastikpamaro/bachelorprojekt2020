@@ -19,4 +19,5 @@
 \contentsline {subsubsection}{\numberline {5.1.7}getAngle}{9}{subsubsection.5.1.7}%
 \contentsline {subsubsection}{\numberline {5.1.8}cameraControl}{9}{subsubsection.5.1.8}%
 \contentsline {subsection}{\numberline {5.2}Ortung der Geräuschquelle}{10}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Fazit}{17}{section.6}%
+\contentsline {section}{\numberline {6}Bedienungsanleitung}{17}{section.6}%
+\contentsline {section}{\numberline {7}Fazit}{18}{section.7}%

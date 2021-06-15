@@ -9,21 +9,24 @@
 \contentsline {subsection}{\numberline {4.4}Positionierung der Baugruppen entlang eines Arrays}{7}{subsection.4.4}%
 \contentsline {section}{\numberline {5}Programmierung}{8}{section.5}%
 \contentsline {subsubsection}{\numberline {5.0.1}Beweisführung}{8}{subsubsection.5.0.1}%
-\contentsline {subsection}{\numberline {5.1}Programmablauf}{8}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}doaV2}{8}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1}Programmablauf}{9}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}doaV2}{9}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}create\_pipe}{9}{subsubsection.5.1.2}%
 \contentsline {subsubsection}{\numberline {5.1.3}updateValues}{9}{subsubsection.5.1.3}%
 \contentsline {subsubsection}{\numberline {5.1.4}processFFT}{9}{subsubsection.5.1.4}%
-\contentsline {subsubsection}{\numberline {5.1.5}getDataForSoundDetect}{9}{subsubsection.5.1.5}%
-\contentsline {subsubsection}{\numberline {5.1.6}checkForBang}{9}{subsubsection.5.1.6}%
-\contentsline {subsubsection}{\numberline {5.1.7}getAngle}{9}{subsubsection.5.1.7}%
-\contentsline {subsubsection}{\numberline {5.1.8}cameraControl}{9}{subsubsection.5.1.8}%
+\contentsline {subsubsection}{\numberline {5.1.5}getDataForSoundDetect}{10}{subsubsection.5.1.5}%
+\contentsline {subsubsection}{\numberline {5.1.6}checkForBang}{10}{subsubsection.5.1.6}%
+\contentsline {subsubsection}{\numberline {5.1.7}getAngle}{10}{subsubsection.5.1.7}%
+\contentsline {subsubsection}{\numberline {5.1.8}cameraControl}{10}{subsubsection.5.1.8}%
 \contentsline {subsection}{\numberline {5.2}Ortung der Geräuschquelle}{10}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Tests}{17}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Mikrofontest}{17}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Hardware Test}{17}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Kabelfunktionstest}{17}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Kabelfunktionstest 2}{18}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Kabelfunktionstest 3}{18}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Bedienungsanleitung}{19}{section.7}%
-\contentsline {section}{\numberline {8}Fazit}{20}{section.8}%
+\contentsline {section}{\numberline {6}Tests}{12}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Mikrofontest}{12}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Hardware Test}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Kabelfunktionstest 1}{13}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Kabelfunktionstest 2}{15}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Kabelfunktionstest 3}{16}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Algorithmustest}{17}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Gesamt-Funktionstest}{19}{subsection.6.7}%
+\contentsline {section}{\numberline {7}Zeiten}{22}{section.7}%
+\contentsline {section}{\numberline {8}Bedienungsanleitung}{23}{section.8}%
+\contentsline {section}{\numberline {9}Fazit}{24}{section.9}%

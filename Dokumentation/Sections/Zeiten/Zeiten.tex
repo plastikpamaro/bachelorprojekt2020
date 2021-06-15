@@ -1,0 +1,39 @@
+\section{Zeiten}
+
+Für Systeme wie sie in der Geschwindigkeitsüberwachung eingesetzt werden ist die Minimierung der Totzeit sehr wichtig. Sie beschreibt die Zeit, in der das System nicht in der Lage ist, ein neues Event zu erkennen, weil es z.B. noch mit der Datenauswertung oder Datenverarbeitung beschäftigt ist.
+
+Eine Messung dieser Zeiten war nur Systemintern mit Software-timern möglich, die in diesem Fall allerdings hinreichend genau waren.
+
+\begin{table}[h]
+\centering
+\begin{tabular}[h]{|l|l|l|}
+	\hline
+	Buffergröße & t\textsubscript{Berechnung} in s & t\textsubscript{Ges} in s \\
+	\hline
+	1024 & 0,03 & 0,27\\
+	\hline
+	5120 & 0,17 & 0,41\\
+	\hline
+	8192 & 0,27 & 0,41\\
+	\hline
+	10240 & 0,34 & 0,57\\
+	\hline	
+\end{tabular}
+\caption{Zeitenvergleich}
+\label{tab:Zeitenvergleich}
+\end{table}
+
+Die Tests haben gezeigt, dass die Berechnungszeit hauptsächlich von der Buffergröße abhängig ist. Zu Testzwecken wurde diese um vielfache der ursprünglichen Anzahl erhöht. Die Berechnungszeit steigt proportional zur Buffergröße an. Vergleicht man nun die Buffergröße mit der Abtastrate der Mikrofone so fällt auf, dass die Berechnungsdauer in Sekunden ungefähr genauso groß ist, wie die Buffergröße in Sekunden. 
+
+t\textsubscript{Ges} ergibt sich aus der Berechnungsdauer zuzüglich der Dauer, die das System benötigt das Ergebnis der Rechnung auf seine Gültigkeit im Blickwinkel zu überprüfen, das Bild aufzuzeichnen und das Bild zu bearbeiten. Die Dauer der reinen Bildverarbeitung lässt sich also mit:
+
+\begin{equation}
+	\begin{aligned}
+		t_{Bv} = t_{Ges} - t_{Berechnung}
+	\end{aligned}
+	\nonumber
+\end{equation}
+
+berechnen und ergibt für die durchgeführten Messungen ein nahezu konstanter Wert von ca. 0.24 Sekunden. Der Zeitpunkt, zu dem das Bild aufgezeichnet wird, ist jedoch früher im Programmablauf und ist näherungsweise gleichzusetzen mit der Beendigung der Berechnung t\textsubscript{Berechnung}. 
+
+\newpage

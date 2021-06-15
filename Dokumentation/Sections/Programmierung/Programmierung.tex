@@ -8,13 +8,13 @@ Das eigentliche Foto wird mithilfe eines \glqq Raspberry Pi 4\grqq\ Kameramodul 
 
 Der hierzu verwendete Programmablauf lässt sich folgendermaßen beschreiben: 
 
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[scale=0.1]{Sections/Programmierung/Beweisführung}
-%	\end{center}
-%	\caption{Beweisführung}
-%	\label{fig:Beweisführung}
-%\end{figure}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.1]{Sections/Programmierung/Beweisführung}
+	\end{center}
+	\caption{Beweisführung}
+	\label{fig:Beweisführung}
+\end{figure}
 
 Die Beweisführung startet, wenn ein definierter Pegel überschritten wird und die Quelle des Geräusches ermittelt wurde. Da die Kamera nur einen Betrachtungswinkel von \ang{60} aufweist, wird nun überprüft, ob sich die Quelle innerhalb des Betrachtungswinkels, also innerhalb des Kamerabildes befindet\footnote{https://www.raspberrypi.org/documentation/hardware/camera/ zuletzt besucht: 05. 06. 21}.
 
@@ -32,13 +32,13 @@ Die Beweisführung enthält somit: ein Foto des Fahrzeugs, ein markiertes Segmen
 
 Der Programmablauf wird in diesem Abschnitt Schritt für Schritt erklärt und anhand geeigneter Diagramme dargestellt. Zu einer genauen Übersicht des Ablaufes ist der Flowchart des Programmes (\autoref{fig:MainFlowchart}) hilfreich. Nun folgt eine chronologische Erklärung der Programmteile.
 
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[scale=0.1]{Sections/Programmierung/MainFlowchart}
-%	\end{center}
-%	\caption{Main Flowchart}
-%	\label{fig:MainFlowchart}
-%\end{figure}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.1]{Sections/Programmierung/MainFlowchart}
+	\end{center}
+	\caption{Main Flowchart}
+	\label{fig:MainFlowchart}
+\end{figure}
 
 
 \subsubsection{doaV2}
@@ -47,13 +47,13 @@ Nach dem Programmaufruf wird die DOA Konfiguration, bestehend aus vorberechneten
 
 Hier wird zunächst die Konfigurationsdatei geöffnet. Nun werden für alle möglichen Mikrofonpaare alle vorberechneten Laufzeiten aller möglichen Winkel eingelesen und in das Array precalculatedCompareValues abgespeichert. Zuletzt wird der Zugriff auf die Datei gestoppt. Die DOA Klasse beinhaltet auch die Berechnung des Ursprungsortes eines Geräusches, auf die im späteren Programmverlauf weiter eingegangen wird.
 
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[scale=0.1]{Sections/Programmierung/doav2}
-%	\end{center}
-%	\caption{doav2}
-%	\label{fig:doav2}
-%\end{figure}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.1]{Sections/Programmierung/doav2}
+	\end{center}
+	\caption{doav2}
+	\label{fig:doav2}
+\end{figure}
 
 
 \subsubsection{create\_pipe}
@@ -80,13 +80,13 @@ Die checkForBang Methode ist eine der wichtigsten im gesamten Programmablauf und
 Wie in \autoref{fig:checkForBang} zu erkennen ist, wird anfangs mithilfe der calcEnergy Methode aus derselben Klasse der Unterschied zwischen den Energieniveaus von Geräuschen ausgerechnet. Dies geschieht durch die schon erwähnte FFT. Wenn nun die errechnete Differenz den Wert 600000 überschreitet, kann davon ausgegangen werden, dass ein lautes und beobachtungswertes Event stattgefunden hat, da eine sehr hohe Energiedifferenz zu vorherigen Werten gemessen wurde.
 
 
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[scale=0.1]{Sections/Programmierung/checkForBang}
-%	\end{center}
-%	\caption{check for bang}
-%	\label{fig:checkForBang}
-%\end{figure}
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[scale=0.1]{Sections/Programmierung/checkForBang}
+	\end{center}
+	\caption{check for bang}
+	\label{fig:checkForBang}
+\end{figure}
 
 \subsubsection{getAngle}
 
@@ -115,343 +115,5 @@ Kreuzkorrelationen sind nützlich für die Bestimmung der Zeitverzögerung zwisc
 $ \tau= arg\ _{t \in \mathbb{R}}\ max\left(( f \star g)(t)\right) $ den zeitlichen Versatz zu errechnen.
 
 In unserem Fall werden diese Maxima initial in Abhängigkeit der geometrischen Form des Mikrofonarray ausgerechnet. Dann wird in der \textit{xcorr} Methode die maximale Latenz zwischen jeder möglichen Mikrofonpaarung ausgerechnet und diese dann in der compareValues Methode miteinander verglichen. Diese Methode vergleicht nun alle gemessenen Verzögerungen mit den vorher ausgerechneten Verzögerungen, und zwar für jeden möglichen Winkel. Der Winkelbereich mit den größten Übereinstimmungen über alle Mikrofonpaarung, kann mit Sicherheit als der Bereich gekennzeichnet werden, aus dem das Geräusch kommt.
-
-\newpage
-
-\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
-	\hline
-	\textbf{Abschnitt} & \textbf{Inhalt}\\
-	\hline
-	\textbf{Name} & Mikrofonfunktionstest\\
-	\hline
-	\textbf{Autor(en)} & Philipp Otto\\
-	\hline
-	\textbf{Priorität} & hoch\\	
-	\hline	
-	\textbf{Kritikalität} & hoch\\
-	\hline
-%	\textbf{Quelle} & \\
-%	\hline
-	\textbf{Verantwortlicher} & Philipp Otto\\
-	\hline
-	\textbf{Kurzbeschreibung} & Mit diesem Test soll die fehlerfreie Funktion der Mikrofone getestet werden\\
-	\hline
-	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./RecordMicToRAM\grqq\\
-	\hline
-	\textbf{Akteure} & Mirkofonpaar, Rasberry Pi, Jumperkabel\\
-	\hline
-	\textbf{Vorbedingung} & Raspberry eingerichtet, Mikrofone und Raspberry mit Kabel verbunden, Raspberry eingeschaltet\\
-	\hline
-	\textbf{Nachbedingung} & \glqq RecordMicToRAM\grqq\ beendet,
-	Prüfung der .txt-Datei ist erfolgt
-	\\
-	\hline
-	\textbf{Ergebnis} & .txt- Datei erstellt\\
-	\hline
-	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
-								\item[1.] Über die Konsoleneingabe wird das Programm gestartet
-								\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Aikrofonausgang auf
-								\item[3.] Das Programm erstellt eine .txt-Datei mit allen Messwerten
-								\item[4.] Die .txt-Datei wird auf Vollständigkeit überprüft
-							\end{description}\\
-	\hline
-	\textbf{Alternativszenario} & \begin{description}[font=\normalfont]
-									\item[4.b] Die .txt-Datei enthält keine Messwerte
-									\item[4.c] Kabelverbindung wird überprüft
-								\end{description}\\
-%	\hline
-%	\textbf{Ausnahmeszenario} & \\
-%	\hline
-%	\textbf{Qualitäten} & \\
-	\hline
-\end{tabularx}
-\captionof{table}{Mikrofonfunktionstest}
-\label{tab:Mikrofonfunktionstest}
-
-\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
-	\hline
-	\textbf{Abschnitt} & \textbf{Inhalt}\\
-	\hline
-	\textbf{Name} & Kabelfunktionstest Nr. 1\\
-	\hline
-	\textbf{Autor(en)} & Philipp Otto\\
-	\hline
-	\textbf{Priorität} & hoch\\	
-	\hline	
-	\textbf{Kritikalität} & hoch\\
-	\hline
-	%	\textbf{Quelle} & \\
-	%	\hline
-	\textbf{Verantwortlicher} & Philipp Otto\\
-	\hline
-	\textbf{Kurzbeschreibung} & Mit diesem Test soll die fehlerfreie Funktion der Kabel getestet werden\\
-	\hline
-	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./RecordMicToRAM\grqq\\
-	\hline
-	\textbf{Akteure} & gesamtes Mikrofonarray, Raspberry Pi, Kabel (lang)\\
-	\hline
-	\textbf{Vorbedingung} & Das Array ist vollständig mit Kabeln und Raspberry verbunden, Raspberry eingeschaltet\\
-	\hline
-	\textbf{Nachbedingung} & Messwerte grafisch auf Plausibilität überprüft
-	\\
-	\hline
-	\textbf{Ergebnis} & Plot der Messwerte\\
-	\hline
-	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
-								\item[1.] Über die Konsoleneingabe wird das Programm gestartet
-								\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Mikrofonausgang auf
-								\item[3.] Das Programm erstellt eine .txt-Datei mit allen Messwerten
-								\item[4.] Die .txt-Datei wird mit python-script in korrektes Datenformat gebracht und in .csv konvertiert
-								\item[5.] .csv wird mit Matlab eingelesen und geplottet
-								\item[6.] Plot wird auf Plausibilität überprüft
-							\end{description}\\
-	\hline
-	\textbf{Alternativszenario} & \begin{description}[font=\normalfont]
-									\item[4.b] Die .txt-Datei enthält keine Messwerte
-									\item[4.c] Kabelverbindung wird überprüft
-									\item[6.b] Plot weist fehlerhafte Messwerte auf
-								\end{description}\\
-	%\hline
-	%	\textbf{Ausnahmeszenario} & \\
-	%	\hline
-	%	\textbf{Qualitäten} & \\
-	\hline
-\end{tabularx}
-\captionof{table}{ Kabelfunktionstest Nr. 1}
-\label{tab: Kabelfunktionstest Nr. 1}
-
-
-\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
-	\hline
-	\textbf{Abschnitt} & \textbf{Inhalt}\\
-	\hline
-	\textbf{Name} & Kabelfunktionstest Nr. 2\\
-	\hline
-	\textbf{Autor(en)} & Philipp Otto\\
-	\hline
-	\textbf{Priorität} & hoch\\	
-	\hline	
-	\textbf{Kritikalität} & hoch\\
-	\hline
-	%	\textbf{Quelle} & \\
-	%	\hline
-	\textbf{Verantwortlicher} & Philipp Otto\\
-	\hline
-	\textbf{Kurzbeschreibung} &Mit diesem Test soll die fehlerfreie Funktion der Kabel bei halbiertem SPI-Takt getestet werden\\
-	\hline
-	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./RecordMicToRAM64\grqq\\
-	\hline
-	\textbf{Akteure} & gesamtes Mikrofonarray, Raspberry Pi, Kabel (lang)\\
-	\hline
-	\textbf{Vorbedingung} & Das Array ist vollständig mit Kabeln und Raspberry verbunden, Raspberry eingeschaltet\\
-	\hline
-	\textbf{Nachbedingung} & Messwerte grafisch auf Plausibilität überprüft
-	\\
-	\hline
-	\textbf{Ergebnis} & Plot der Messwerte\\
-	\hline
-	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
-		\item[1.] Über die Konsoleneingabe wird das Programm gestartet
-		\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Mikrofonausgang auf
-		\item[3.] Das Programm erstellt eine .txt-Datei mit allen Messwerten
-		\item[4.] Die .txt-Datei wird mit python-script in korrektes Datenformat gebracht und in .csv konvertiert
-		\item[5.] .csv wird mit Matlab eingelesen und geplottet
-		\item[6.] Plot wird auf Plausibilität überprüft
-	\end{description}\\
-	\hline
-	\textbf{Alternativszenario} & \begin{description}[font=\normalfont]
-		\item[4.b] Die .txt-Datei enthält keine Messwerte
-		\item[4.c] Kabelverbindung wird überprüft
-		\item[6.b] Plot weist fehlerhafte Messwerte auf
-	\end{description}\\
-	%\hline
-	%	\textbf{Ausnahmeszenario} & \\
-	%	\hline
-	%	\textbf{Qualitäten} & \\
-	\hline
-\end{tabularx}
-\captionof{table}{ Kabelfunktionstest Nr. 2}
-\label{tab: Kabelfunktionstest Nr. 2}
-
-\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
-	\hline
-	\textbf{Abschnitt} & \textbf{Inhalt}\\
-	\hline
-	\textbf{Name} & Kabelfunktionstest Nr. 2\\
-	\hline
-	\textbf{Autor(en)} & Philipp Otto\\
-	\hline
-	\textbf{Priorität} & hoch\\	
-	\hline	
-	\textbf{Kritikalität} & hoch\\
-	\hline
-	%	\textbf{Quelle} & \\
-	%	\hline
-	\textbf{Verantwortlicher} & Philipp Otto\\
-	\hline
-	\textbf{Kurzbeschreibung} & Mit diesem Test soll die fehlerfreie Funktion der Kabel bei halbiertem SPI-Takt und kürzeren Kabeln getestet werden\\
-	\hline
-	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./RecordMicToRAM64\grqq\\
-	\hline
-	\textbf{Akteure} & gesamtes Mikrofonarray, Raspberry Pi, Kabel (kurz)\\
-	\hline
-	\textbf{Vorbedingung} & Das Array ist vollständig mit Kabeln und Raspberry verbunden, Raspberry eingeschaltet\\
-	\hline
-	\textbf{Nachbedingung} & Messwerte grafisch auf Plausibilität überprüft
-	\\
-	\hline
-	\textbf{Ergebnis} & Plot der Messwerte\\
-	\hline
-	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
-		\item[1.] Über die Konsoleneingabe wird das Programm gestartet
-		\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Mikrofonausgang auf
-		\item[3.] Das Programm erstellt eine .txt-Datei mit allen Messwerten
-		\item[4.] Die .txt-Datei wird mit python-script in korrektes Datenformat gebracht und in .csv konvertiert
-		\item[5.] .csv wird mit Matlab eingelesen und geplottet
-		\item[6.] Plot wird auf Plausibilität überprüft
-	\end{description}\\
-	\hline
-	\textbf{Alternativszenario} & \begin{description}[font=\normalfont]
-		\item[4.b] Die .txt-Datei enthält keine Messwerte
-		\item[4.c] Kabelverbindung wird überprüft
-		\item[6.b] Plot weist fehlerhafte Messwerte auf
-	\end{description}\\
-	%\hline
-	%	\textbf{Ausnahmeszenario} & \\
-	%	\hline
-	%	\textbf{Qualitäten} & \\
-	\hline
-\end{tabularx}
-\captionof{table}{ Kabelfunktionstest Nr. 3}
-\label{tab: Kabelfunktionstest Nr. 3}
-
-\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
-	\hline
-	\textbf{Abschnitt} & \textbf{Inhalt}\\
-	\hline
-	\textbf{Name} & Algorithmus-Test (Matlab)\\
-	\hline
-	\textbf{Autor(en)} & Philipp Otto\\
-	\hline
-	\textbf{Priorität} & hoch\\	
-	\hline	
-	\textbf{Kritikalität} & hoch\\
-	\hline
-%	\textbf{Quelle} & \\
-%	\hline
-	\textbf{Verantwortlicher} & Philipp Otto\\
-	\hline
-	\textbf{Kurzbeschreibung} & Mit diesem Test soll die fehlerfreie Funktion des Lokalisierungs-algorithmus getestet werden\\
-	\hline
-	\textbf{Auslösendes Ereignis} & \glqq sudo ./RecordMicToRAM64\grqq\\
-	\hline
-	\textbf{Akteure} & gesamtes Mirkofonarray, Rasberry Pi, Kabel(kurz)\\
-	\hline
-	\textbf{Vorbedingung} & Das System ist vollständig montiert, 
-	Raspberry eingeschaltet\\
-	\hline
-	\textbf{Nachbedingung} & Lokalisierungsergebnisse grafisch auf Plausibilität überprüft.\\
-	\hline
-	\textbf{Ergebnis} & Plot der Lokalisierungsergebnisse\\
-	\hline
-	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
-								\item[1.] Über die Konsoleneingabe wird das Programm gestartet
-								\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Mikrofonausgang auf
-								\item[3.] Das Programm erstellt eine .txt-Datei mit allen Messwerten
-								\item[4.] Die .txt-Datei wird mit python Skript in korrektes Datenformat gebracht und in .csv konvertiert
-								\item[5.] .csv wird in Matlab eingelesen
-								\item[6.] Lokalisierung wird mithilfe des Skripts \glqq testDelayAndSum.m\grqq\ berechnet und geplottet
-								\item[7.] Plot wird auf Plausibilität überprüft
-							\end{description}\\
-	\hline
-	\textbf{Alternativszenario} & \begin{description}[font=\normalfont]
-									\item[7.b] Lokalisierung entspricht nicht dem erwarteten Winkelbereich
-									\item[6.c] Lokalisierung ist uneindeutig
-									\item[8.] Messung wird in anderem Umfeld wiederholt
-								\end{description}\\
-	\hline
-%	\textbf{Ausnahmeszenario} & \\
-%	\hline
-%	\textbf{Qualitäten} & \\
-%	\hline
-\end{tabularx}
-\captionof{table}{Algorithmus-Test (Matlab)}
-\label{tab:Algorithmus_Test_Matlab}
-
-\begin{tabularx}{\columnwidth}{|p{4cm}|X|}
-	\hline
-	\textbf{Abschnitt} & \textbf{Inhalt}\\
-	\hline
-	\textbf{Name} & Gesamt-Funktionstest\\
-	\hline
-	\textbf{Autor(en)} & Philipp Otto\\
-	\hline
-	\textbf{Priorität} & hoch\\	
-	\hline	
-	\textbf{Kritikalität} & hoch\\
-	\hline
-%	\textbf{Quelle} & \\
-%	\hline
-	\textbf{Verantwortlicher} & Philipp Otto\\
-	\hline
-	\textbf{Kurzbeschreibung} & Mit diesem Test soll die fehlerfreie Funktion des gesamten Programms getestet werden\\
-	\hline
-	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./mic\_handler\_pipe64\grqq, Start des Programms über Netbeans\\
-	\hline
-	\textbf{Akteure} & gesamtes Mirkofonarray, Rasberry Pi, Kabel(kurz)\\
-	\hline
-	\textbf{Vorbedingung} & Das System ist vollständig montiert, 
-	Raspberry eingeschaltet\\
-	\hline
-	\textbf{Nachbedingung} & Lokalisierungsergebnisse grafisch auf Plausibilität überprüft.\\
-	\hline
-	\textbf{Ergebnis} & Bearbeitetes .png-Datei\\
-	\hline
-	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
-									\item[1.] Über \glqq run\grqq\ wird das Hauptprogramm in der IDE gestartet
-									\item[2.] 4 Sekunden warten
-									\item[3.] Mit \glqq sudo ./mic\_handler\_pipe64\grqq\ wird die pipe geöffnet
-									\item[4.] Geräuschevent wird erzeugt
-									\item[5.] Event wird erkannt und auf Konsole angezeigt
-									\item[6.] Wenn das Event im Bildbereich erzeugt wurde, wird ein Bild aufgezeichnet
-									\item[7.] Bild wird bearbeitet und abgespeichert
-									\item[8.] Bild wird auf Zweitgerät geladen
-									\item[9.] Bild wird auf Plausibilität überprüft
-							\end{description}\\
-	\hline
-	\textbf{Alternativszenario} & \begin{description}[font=\normalfont]
-									\item[5.b] Event wird nicht korrekt erkannt
-									\item[5.c] Pegelerkennung wird angepasst
-									\item[5.d] Event wird wiederholt
-									\item[6.b] Event wurde im Bildbereich erzeugt aber nicht dort lokalisiert
-									\item[6.c] Event wird wiederholt
-									\item[9.b] Bearbeitetes Bild entspricht nicht den Erwartungen
-									\item[9.c] Lokalisierungsparameter (Buffer wird angepasst)
-									\item[9.d] Event wird wiederholt
-									\end{description}\\
-	\hline
-%	\textbf{Ausnahmeszenario} & \\
-%	\hline
-%	\textbf{Qualitäten} & \\
-%	\hline
-\end{tabularx}
-\captionof{table}{Gesamt-Funktionstest}
-\label{tab:Gesamt-Funktionstest}
-
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=\textwidth]{Sections/Programmierung/Test_2_d}
-%	\end{center}
-%	\caption{Test 2 d}
-%	\label{fig:Test_2_d}
-%\end{figure}
-%
-%\begin{figure}[h]
-%	\begin{center}
-%		\includegraphics[width=\textwidth]{Sections/Programmierung/Test_3_d}
-%	\end{center}
-%	\caption{Test 3 d}
-%	\label{fig:Test_3_d}
-%\end{figure}
 
 \newpage

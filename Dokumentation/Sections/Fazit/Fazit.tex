@@ -1,1 +1,21 @@
 \section{Fazit}
+
+Für eine möglichst genaue Lokalisierung der Eventquelle ist es notwendig der Berechnung möglichst viele Messwerte zur Verfügung zu stellen. Allerdings haben die Tests ergeben, dass es im laufenden Betrieb des Systems nicht möglich ist einen Buffer von mehr als 0.45 Sekunden zu realisieren. Der ursprünglich geplante Buffer von vier Sekunden bringt des Raspberry Pi sogar aufgrund der RAM-Überlastung zum Absturz.
+
+Darüber hinaus verzögert die Berechnungsdauer den Zeitpunkt der Beweisführung linear zur Buffergröße. Selbst wenn es technisch möglich wäre den geplanten Buffer von vier Sekunden verwenden zu können, so wäre das aufgezeichnete Bild dennoch ca. vier Sekunden verzögert. Dieses Verhalten hat zwar keinen Einfluss auf die gegebenen Anforderungen, ein vorbeifahrendes Fahrzeug wäre damit aber unmöglich zu dokumentieren. 
+
+Ein Kompromiss aus Lokalisierungsgenauigkeit und Berechnungsdauer ist der Verwendung eines Buffers, der 5120 Messwerte pro Mikrofon enthält. Das entspricht einer Dauer von ca. 0.21 Sekunden. Hierbei ist die vollständige Funktion des Raspberry Pi noch gewährleistet. 
+
+Geht man davon aus, dass es sich bei dem Event um einen kurzen Zeitraum wie etwa eine Fehlzündung eines Verbrennungsmotors handelt, so bietet ein Buffer von 0.21 Sekunden dennoch genügend Messwerte, um das Event hinlänglich darstellen zu können. 
+
+An einem der Testtage kam es immer wieder zu Fehlerkennungen von Events. Dieses Verhalten konnte auf die Position des Arrays zum Wind rückgeführt werden. An besonders windigen Tagen hat dieser in den Mikrofongehäusen immer wieder Störgeräusche verursacht, die bereits ausreichend waren, die Pegelerkennung auszulösen. 
+
+In kommenden Entwicklungen könnten diverse Aspekte verbessert werden. So ist es z.B. möglich die Deckelform der Mikrofongehäuse anzupassen, um diese mit einer Membran abdecken zu können. Eine Abdeckung könnte in Kombination mit einer Hohlraumfüllung der Gehäuse, wie etwa Wolle, die Störgeräusche im Gehäuse reduzieren. 
+
+Darüber hinaus ist die Verzögerung der Beweisführung basierend auf der Buffergröße zu adressieren. Eine Möglichkeit dies zu umgehen wäre es das Bild bereits nach der Eventerkennung aufzuzeichnen und zunächst nur im RAM zu speichern. Befindet sich das Event nach der Lokalisierung nicht im Bildbereich, so ist es möglich das im RAM gespeicherte Bild wieder zu löschen und den Speicherplatz für das nächste Bild freizugeben. 
+
+Auch der Lokalisierung Algorithmus könnte noch deutlich verbessert werden. Bezieht man die Berechnung nur auf den Blickbereich der Kamera und wertet diesen nicht nach der Rechnung aus wie bisher, so ließe sich die Berechnungszeit reduzieren. 
+
+Bisher wird bei der Lokalisierung auch lediglich in der Horizontalen unterschieden. Ergänzt man das Array um eine weitere Dimension, so ließen sich die Events auch in der Vertikalen Lokalisieren. Dies könnte ein großer Vorteil sein, wenn das System z.B. in der Vogelperspektive auf eine Straße runterblickt, wie es häufig auf Autobahnen der Fall ist.
+
+Eine qualitative Bewertungsmethode der Lokalisierungsgenauigkeit wäre ebenfalls notwendig, um die Baugröße des Arrays zu reduzieren. Diese Reduzierung wurden bereits die notwendigen Verzögerungen der Mikrofone berechnet, ohne eine Bewertungsmethode der Lokalisierung ist jedoch nicht möglich ein Minimum festzustellen. 

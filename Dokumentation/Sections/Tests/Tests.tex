@@ -68,7 +68,6 @@ Mit dem Skript \glqq RecordMicToRAM\grqq\ wurden die Daten des Mikrofonpaar eing
 \captionof{table}{Mikrofonfunktionstest}
 \label{tab:Mikrofonfunktionstest}
 
-\subsection{Hardware Test}
 
 \subsection{Kabelfunktionstest 1}
 
@@ -150,7 +149,12 @@ Um eine qualitative Ursachensuche vornehmen zu können, beschlossen wir die aufg
 \captionof{table}{ Kabelfunktionstest Nr. 1}
 \label{tab: Kabelfunktionstest Nr. 1}
 
+
 \subsection{Kabelfunktionstest 2}
+
+Weil für den Mikrofontest keine eigenen Kabel verwendet wurden, ist es noch notwendig die selbst hergestellten Kabel auf fehlerfreie Funktion zu testen. Dafür wurden diese mit einem Mulitmeter erst auf Durchgang und im zweiten Schritt auf Kurzschlüsse zwischen den Einzeladern getestet. In beiden Fällen ist bei der Produktion der Kabel kein Fehler aufgetreten, daher können diese als voll funktionsfähig angesehen werden.
+
+\subsection{Kabelfunktionstest 3}
 
 In einer zweiten Iteration wurde das System umkonfiguriert, sodass jetzt mit einem SPI-Takt von \SI{3,9}{MHz} und nicht wie ursprünglich mit \SI{7,8}{MHz} gearbeitet wird. 
 
@@ -158,7 +162,7 @@ In einer zweiten Iteration wurde das System umkonfiguriert, sodass jetzt mit ein
 	\begin{center}
 		\includegraphics[scale=0.1]{Sections/Tests/Test_2_d}
 	\end{center}
-	\caption{Kabelfunktionstest 2}
+	\caption{Kabelfunktionstest 3}
 	\label{fig:Test_2_d}
 \end{figure}
 
@@ -170,7 +174,7 @@ Eine reine Reduzierung des verwendeten SPI-Takts hat das Problem also noch nicht
 	\hline
 	\textbf{Abschnitt} & \textbf{Inhalt}\\
 	\hline
-	\textbf{Name} & Kabelfunktionstest Nr. 2\\
+	\textbf{Name} & Kabelfunktionstest Nr. 3\\
 	\hline
 	\textbf{Autor(en)} & Philipp Otto\\
 	\hline
@@ -215,10 +219,10 @@ Eine reine Reduzierung des verwendeten SPI-Takts hat das Problem also noch nicht
 	%	\textbf{Qualitäten} & \\
 	\hline
 \end{tabularx}
-\captionof{table}{ Kabelfunktionstest Nr. 2}
-\label{tab: Kabelfunktionstest Nr. 2}
+\captionof{table}{ Kabelfunktionstest Nr. 3}
+\label{tab: Kabelfunktionstest Nr. 3}
 
-\subsection{Kabelfunktionstest 3}
+\subsection{Kabelfunktionstest 4}
 
 In der nächsten Anpassung wurde die Kabellänge der Mikrofonkabel auf nun ca. \SI{25}{cm} reduziert mit der Erwartung, dass die Taktsicherheit über die gesamte Kabellänge steigen sollte.
 
@@ -226,7 +230,7 @@ In der nächsten Anpassung wurde die Kabellänge der Mikrofonkabel auf nun ca. \
 	\begin{center}
 		\includegraphics[scale=0.1]{Sections/Tests/Test_3_d}
 	\end{center}
-	\caption{Kabelfunktionstest 3}
+	\caption{Kabelfunktionstest 4}
 	\label{fig:Test_3_d}
 \end{figure}
 
@@ -236,7 +240,7 @@ Die nun durchgeführte Messung wies das gewünschte, rauschfreie Verhalten der M
 	\hline
 	\textbf{Abschnitt} & \textbf{Inhalt}\\
 	\hline
-	\textbf{Name} & Kabelfunktionstest Nr. 2\\
+	\textbf{Name} & Kabelfunktionstest Nr. 4\\
 	\hline
 	\textbf{Autor(en)} & Philipp Otto\\
 	\hline
@@ -281,8 +285,8 @@ Die nun durchgeführte Messung wies das gewünschte, rauschfreie Verhalten der M
 	%	\textbf{Qualitäten} & \\
 	\hline
 \end{tabularx}
-\captionof{table}{ Kabelfunktionstest Nr. 3}
-\label{tab: Kabelfunktionstest Nr. 3}
+\captionof{table}{ Kabelfunktionstest Nr. 4}
+\label{tab: Kabelfunktionstest Nr. 4}
 
 \subsection{Algorithmustest}
 

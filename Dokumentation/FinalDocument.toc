@@ -21,12 +21,13 @@
 \contentsline {subsection}{\numberline {5.2}Ortung der Geräuschquelle}{10}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Tests}{12}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Mikrofontest}{12}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Hardware Test}{13}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Kabelfunktionstest 1}{13}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Kabelfunktionstest 2}{15}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Kabelfunktionstest 3}{16}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.2}Kabelfunktionstest 1}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Kabelfunktionstest 2}{15}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Kabelfunktionstest 3}{15}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Kabelfunktionstest 4}{16}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Algorithmustest}{17}{subsection.6.6}%
 \contentsline {subsection}{\numberline {6.7}Gesamt-Funktionstest}{19}{subsection.6.7}%
 \contentsline {section}{\numberline {7}Zeiten}{22}{section.7}%
 \contentsline {section}{\numberline {8}Bedienungsanleitung}{23}{section.8}%
 \contentsline {section}{\numberline {9}Fazit}{24}{section.9}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

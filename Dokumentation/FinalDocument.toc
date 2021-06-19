@@ -30,4 +30,3 @@
 \contentsline {section}{\numberline {7}Zeiten}{22}{section.7}%
 \contentsline {section}{\numberline {8}Bedienungsanleitung}{23}{section.8}%
 \contentsline {section}{\numberline {9}Fazit}{24}{section.9}%
-\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

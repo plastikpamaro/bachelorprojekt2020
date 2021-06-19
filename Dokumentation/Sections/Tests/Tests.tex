@@ -6,7 +6,7 @@ Leider hat die aktuell herrschende Covid-19 Pandemie die Erstellung und Durchfü
 
 \subsection{Mikrofontest}
 
-Noch vor der eigentlichen Entwicklungsarbeit wurden die zur Verfügung gestellten Einzelkomponenten auf ihre Funktion überprüft. Hierzu wurde der Raspberry Pi mit einem Betriebssystem versehen (Raspberry OS 10) und mit der notwendigen c-Bibliothek versehen BCM 2835 V1.68. Über einfache Jumperkabel wurde jeweils ein zu testendes Mikrofon und ein Abschlussmikrofon an den Raspberry angeschlossen und ein Test durchgeführt. (\autoref{fig:BlockbildMikroTest}).
+Noch vor der eigentlichen Entwicklungsarbeit wurden die zur Verfügung gestellten Einzelkomponenten auf ihre Funktion überprüft. Hierzu wurde der Raspberry Pi mit einem Betriebssystem versehen (Raspberry OS 10) und mit der notwendigen c-Bibliothek versehen (BCM 2835 V1.68). Über einfache Jumperkabel wurde jeweils ein zu testendes Mikrofon und ein Abschlussmikrofon an den Raspberry angeschlossen und ein Test durchgeführt. (\autoref{fig:BlockbildMikroTest}).
 
 \begin{figure}[h]
 	\begin{center}
@@ -16,7 +16,7 @@ Noch vor der eigentlichen Entwicklungsarbeit wurden die zur Verfügung gestellte
 	\label{fig:BlockbildMikroTest}
 \end{figure}
 
-Mit dem Skript \glqq RecordMicToRAM\grqq\ wurden die Daten des Mikrofonpaar eingelesen und auf ihre Vollständigkeit überprüft. Es wird eine .txt-Datei erzeugt. In dieser Datei sind 7 Spalten und für das entsprechende Mikrofon tauchen bei erfolgreichem Durchlauf Messwerte auf. So konnte die korrekte Funktion der einzelnen Mikrofone garantiert werden.
+Mit dem Skript \glqq RecordMicToRAM\grqq\ wurden die Daten des Mikrofonpaares eingelesen und auf ihre Vollständigkeit überprüft. Es wird eine .txt-Datei erzeugt, in dieser sind 7 Spalten. Für das entsprechende Mikrofon tauchen bei erfolgreichem Durchlauf Messwerte auf. So konnte die korrekte Funktion der einzelnen Mikrofone garantiert werden.
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
@@ -38,7 +38,7 @@ Mit dem Skript \glqq RecordMicToRAM\grqq\ wurden die Daten des Mikrofonpaar eing
 	\hline
 	\textbf{Auslösendes Ereignis} & Eingabe Konsole: \glqq sudo ./RecordMicToRAM\grqq\\
 	\hline
-	\textbf{Akteure} & Mirkofonpaar, Rasberry Pi, Jumperkabel\\
+	\textbf{Akteure} & Mirkofonpaar, Raspberry Pi, Jumperkabel\\
 	\hline
 	\textbf{Vorbedingung} & Raspberry eingerichtet, Mikrofone und Raspberry mit Kabel verbunden, Raspberry eingeschaltet\\
 	\hline
@@ -50,7 +50,7 @@ Mit dem Skript \glqq RecordMicToRAM\grqq\ wurden die Daten des Mikrofonpaar eing
 	\hline
 	\textbf{Hauptszenario} & \begin{description}[font=\normalfont]
 		\item[1.] Über die Konsoleneingabe wird das Programm gestartet
-		\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Aikrofonausgang auf
+		\item[2.] Das Programm zeichnet ca. 8 Sekunden lang den Mikrofonausgang auf
 		\item[3.] Das Programm erstellt eine .txt-Datei mit allen Messwerten
 		\item[4.] Die .txt-Datei wird auf Vollständigkeit überprüft
 	\end{description}\\
@@ -290,7 +290,7 @@ Die nun durchgeführte Messung wies das gewünschte, rauschfreie Verhalten der M
 
 \subsection{Algorithmustest}
 
-Im nächsten Testschritt wurde das Gesamtsystem in einer den Anforderungen entsprechenden Umgebungssituation Situation getestet. Das bedeutet das System wurde auf einem Stativ in fast vollständig aufgebautem Zustand im freien, in einer echoreduzierten Umgebung betrieben.
+Im nächsten Testschritt wurde das Gesamtsystem in einer den Anforderungen entsprechenden Umgebungssituation getestet. Das bedeutet das System wurde auf einem Stativ in fast vollständig aufgebautem Zustand im Freien, in einer echoreduzierten Umgebung betrieben.
 
 \begin{figure}[h]
 	\begin{center}
@@ -302,7 +302,7 @@ Im nächsten Testschritt wurde das Gesamtsystem in einer den Anforderungen entsp
 
 Zunächst wurde erneut eine Messung über eine Dauer von acht Sekunden durchgeführt und wieder nach ungefähr zwei Sekunden ein Händeklatschen in einer Distanz von ca. \SI{15}{m} aufgezeichnet.
 
-Die Aufgezeichneten Werte  der Messungen, also 205000 Messwerte pro Mikrofon wurden im Anschluss in Matlab mit dem gleichen Algorithmus ausgewertet, der auch Systemintern verwendet wird. Die Lokalisierung ergab folgendes Bild:
+Die Aufgezeichneten Werte  der Messungen, also 205000 Messwerte pro Mikrofon, wurden im Anschluss in Matlab mit dem gleichen Algorithmus ausgewertet, der auch Systemintern verwendet wird. Die Lokalisierung ergab folgendes Bild:
 
 \begin{figure}[h]
 	\begin{center}
@@ -382,9 +382,9 @@ Auch hier wurde das System wieder in einer anforderungsähnlichen Umgebungssitua
 	\label{fig:Test_7}
 \end{figure}
 
-In diesem Test wurde der eigentliche Dauerbetrieb des Systems getestet. Das bedeutet, das System lief endlos, bis es durch den Nutzer abgebrochen wurde und durch das Programm wurden fortlaufende Messdaten ausgewertet. 
+In diesem Test wurde der eigentliche Dauerbetrieb des Systems getestet. Das bedeutet, das System lief endlos (bis es durch den Nutzer abgebrochen wurde), währende durch das Programm fortlaufende Messdaten ausgewertet wurden. 
 
-Erwartet wurde eine Benachrichtigung des Nutzers über ein erkanntes Event mit des zugehörigen Lokalisierungsergebnis über die Systemkonsole mit einer zugehörigen .png-Datei, auf der das erkannte Segment farblich markiert wurde.
+Erwartet wurde eine Benachrichtigung des Nutzers über ein erkanntes Event mit des zugehörigen Lokalisierungsergebnis über die Systemkonsole mit einer zugehörigen .png-Datei, auf der das erkannte Segment, farblich markiert wurde.
 
 Der Versuch hat gezeigt, dass das System den erhöhten Pegel eines auftretenden Events sehr gut erkennen kann. Zwar kam es immer wieder zu variierenden Verzögerungen in der Anzeige auf der Konsole, aber es wurden dennoch aufeinanderfolgende Events korrekt hintereinander aufgelistet. Der hierzu verwendete Schwellenwert, ab dem das System auslösen soll, musste zunächst auf die neue Umgebungssituation und auf die Lautstärke des Events angepasst werden. 
 
@@ -406,7 +406,7 @@ Durch die Fehllokalisierung trat darüber hinaus auch der Fall auf, dass das Eve
 
 Diese Fehlmessung ist wahrscheinlich auf die Tatsache rückzuführen, dass der \glqq Raspberry Pi\grqq\ im laufenden Betrieb des Systems nur eine sehr begrenze Menge an Daten in seinem RAM abspeichern kann. Dadurch waren wir gezwungen die Lokalisierung mit einer deutlich reduzierten Menge an Messwerten durchzuführen. 
 
-Leider war es uns nicht möglich ein Testverfahren zu entwickeln, mit dem sich die Genauigkeit der Lokalisierung qualitativ bewerten lässt, um so ein Minimum an benötigten Messdaten ermitteln zu können. Die verwendete Buffergröße wurde lediglich durch Tests ermittelt.
+Leider war es uns nicht möglich ein Testverfahren zu entwickeln, mit welchem sich die Genauigkeit der Lokalisierung qualitativ bewerten lässt, um so ein Minimum an benötigten Messdaten ermitteln zu können. Die verwendete Buffergröße wurde lediglich durch Tests ermittelt.
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline

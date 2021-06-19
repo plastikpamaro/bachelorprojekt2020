@@ -2,7 +2,7 @@
 
 Für Systeme wie sie in der Geschwindigkeitsüberwachung eingesetzt werden ist die Minimierung der Totzeit sehr wichtig. Sie beschreibt die Zeit, in der das System nicht in der Lage ist, ein neues Event zu erkennen, weil es z.B. noch mit der Datenauswertung oder Datenverarbeitung beschäftigt ist.
 
-Eine Messung dieser Zeiten war nur Systemintern mit Software-timern möglich, die in diesem Fall allerdings hinreichend genau waren.
+Eine Messung dieser Zeiten war nur systemintern mit Software-Timer möglich, die in diesem Fall allerdings hinreichend genau waren.
 
 \begin{table}[h]
 \centering
@@ -23,7 +23,7 @@ Eine Messung dieser Zeiten war nur Systemintern mit Software-timern möglich, di
 \label{tab:Zeitenvergleich}
 \end{table}
 
-Die Tests haben gezeigt, dass die Berechnungszeit hauptsächlich von der Buffergröße abhängig ist. Zu Testzwecken wurde diese um vielfache der ursprünglichen Anzahl erhöht. Die Berechnungszeit steigt proportional zur Buffergröße an. Vergleicht man nun die Buffergröße mit der Abtastrate der Mikrofone so fällt auf, dass die Berechnungsdauer in Sekunden ungefähr genauso groß ist, wie die Buffergröße in Sekunden. 
+Die Tests haben gezeigt, dass die Berechnungszeit hauptsächlich von der Buffergröße abhängig ist. Zu Testzwecken wurde diese um Vielfache der ursprünglichen Anzahl erhöht. Die Berechnungszeit steigt proportional zur Buffergröße an. Vergleicht man nun die Buffergröße dividiert mit der Abtastrate der Mikrofone so fällt auf, dass die Berechnungsdauer in Sekunden ungefähr genauso groß ist, wie die Buffergröße in Sekunden. 
 
 t\textsubscript{Ges} ergibt sich aus der Berechnungsdauer zuzüglich der Dauer, die das System benötigt das Ergebnis der Rechnung auf seine Gültigkeit im Blickwinkel zu überprüfen, das Bild aufzuzeichnen und das Bild zu bearbeiten. Die Dauer der reinen Bildverarbeitung lässt sich also mit:
 
@@ -34,6 +34,6 @@ t\textsubscript{Ges} ergibt sich aus der Berechnungsdauer zuzüglich der Dauer, 
 	\nonumber
 \end{equation}
 
-berechnen und ergibt für die durchgeführten Messungen ein nahezu konstanter Wert von ca. 0.24 Sekunden. Der Zeitpunkt, zu dem das Bild aufgezeichnet wird, ist jedoch früher im Programmablauf und ist näherungsweise gleichzusetzen mit der Beendigung der Berechnung t\textsubscript{Berechnung}. 
+berechnen und ergibt für die durchgeführten Messungen ein nahezu konstanter Wert von ca. 0,24 Sekunden. Der Zeitpunkt, zu dem das Bild aufgezeichnet wird, ist jedoch früher im Programmablauf und ist näherungsweise gleichzusetzen mit der Beendigung der Berechnung zum Zeitpunkt t\textsubscript{Berechnung}. 
 
 \newpage

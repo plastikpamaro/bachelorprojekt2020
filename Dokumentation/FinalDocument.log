@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.5)  20 JUN 2021 07:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.5)  21 JUN 2021 10:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1082,7 +1082,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
  [2])
 (./Sections/Umgebungssituation/Umgebungssituation.tex [3])
 (./Sections/Konstruktion_des_Aufbaus/Konstruktion_des_Aufbaus.tex
-<Sections/Konstruktion_des_Aufbaus/Mikrofonplatine.png, id=110, 699.61375pt x 4
+<Sections/Konstruktion_des_Aufbaus/Mikrofonplatine.png, id=109, 699.61375pt x 4
 96.85625pt>
 File: Sections/Konstruktion_des_Aufbaus/Mikrofonplatine.png Graphic file (type 
 png)
@@ -1091,7 +1091,7 @@ Package pdftex.def Info: Sections/Konstruktion_des_Aufbaus/Mikrofonplatine.png
  used on input line 28.
 (pdftex.def)             Requested size: 174.903pt x 124.21375pt.
  [4 <./Sections/Konstruktion_des_Aufbaus/Mikrofonplatine.png>]
-<Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse.png, id=121, 487.8225pt x 4
+<Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse.png, id=120, 487.8225pt x 4
 33.62pt>
 File: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse.png Graphic file (type
  png)
@@ -1099,25 +1099,25 @@ File: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse.png Graphic file (type
 Package pdftex.def Info: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse.png
   used on input line 38.
 (pdftex.def)             Requested size: 121.95532pt x 108.40472pt.
-<Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.1.png, id=123, 659.4637
+<Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.1.png, id=122, 659.4637
 5pt x 490.83376pt>
 File: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.1.png Graphic file
  (type png)
 <use Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.1.png>
 Package pdftex.def Info: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0
 .1.png  used on input line 48.
-(pdftex.def)             Requested size: 164.86552pt x 122.70813pt.
+(pdftex.def)             Requested size: 131.89041pt x 98.16501pt.
  [5 <./Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse.png> <./Sections/Kons
 truktion_des_Aufbaus/Mikrofongehäuse_V_0.1.png>]
-<Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2.png, id=134, 1142.267
+<Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2.png, id=133, 1142.267
 5pt x 794.97pt>
 File: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2.png Graphic file
  (type png)
 <use Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2.png>
 Package pdftex.def Info: Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0
 .2.png  used on input line 69.
-(pdftex.def)             Requested size: 228.44945pt x 158.99118pt.
-<Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.1.png, id=138, 
+(pdftex.def)             Requested size: 171.33273pt x 119.24036pt.
+<Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.1.png, id=137, 
 875.27pt x 391.4625pt>
 File: Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.1.png Grap
 hic file (type png)
@@ -1125,9 +1125,7 @@ hic file (type png)
 Package pdftex.def Info: Sections/Konstruktion_des_Aufbaus/Schnitt_Installation
 sbox_V_0.1.png  used on input line 87.
 (pdftex.def)             Requested size: 218.81696pt x 97.86537pt.
- [6 <./Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2.png> <./Section
-s/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.1.png>]
-<Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.2.png, id=151, 
+<Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.2.png, id=138, 
 849.1725pt x 406.51875pt>
 File: Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.2.png Grap
 hic file (type png)
@@ -1135,104 +1133,128 @@ hic file (type png)
 Package pdftex.def Info: Sections/Konstruktion_des_Aufbaus/Schnitt_Installation
 sbox_V_0.2.png  used on input line 97.
 (pdftex.def)             Requested size: 237.76668pt x 113.82446pt.
- [7 <./Sections/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.2.png>]) 
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./Sections/Konstruktion_des_Aufbaus/Mikrofongehäuse_V_0.2.png> <./Sections
+/Konstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.1.png>] [7 <./Sections/K
+onstruktion_des_Aufbaus/Schnitt_Installationsbox_V_0.2.png>])
 (./Sections/Programmierung/Programmierung.tex
-<Sections/Programmierung/Beweisführung.png, id=158, 606.76688pt x 903.375pt>
+<Sections/Programmierung/Beweisführung.png, id=155, 606.76688pt x 903.375pt>
 File: Sections/Programmierung/Beweisführung.png Graphic file (type png)
 <use Sections/Programmierung/Beweisführung.png>
 Package pdftex.def Info: Sections/Programmierung/Beweisführung.png  used on in
 put line 13.
-(pdftex.def)             Requested size: 60.68024pt x 90.34279pt.
+(pdftex.def)             Requested size: 303.38269pt x 451.6864pt.
  [8 <./Sections/Programmierung/Beweisführung.png>]
-<Sections/Programmierung/MainFlowchart.png, id=176, 377.17712pt x 1184.07169pt>
+<Sections/Programmierung/MainFlowchart.png, id=166, 377.17712pt x 1184.07169pt>
 
 File: Sections/Programmierung/MainFlowchart.png Graphic file (type png)
 <use Sections/Programmierung/MainFlowchart.png>
 Package pdftex.def Info: Sections/Programmierung/MainFlowchart.png  used on inp
 ut line 37.
-(pdftex.def)             Requested size: 37.71991pt x 118.4141pt.
-<Sections/Programmierung/doav2.png, id=178, 292.6935pt x 535.5207pt>
+(pdftex.def)             Requested size: 188.58809pt x 592.0344pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Sections/Programmierung/doav2.png, id=168, 292.6935pt x 535.5207pt>
 File: Sections/Programmierung/doav2.png Graphic file (type png)
 <use Sections/Programmierung/doav2.png>
 Package pdftex.def Info: Sections/Programmierung/doav2.png  used on input line 
 52.
-(pdftex.def)             Requested size: 29.27106pt x 53.5552pt.
- [9 <./Sections/Programmierung/MainFlowchart.png> <./Sections/Programmierung/do
-av2.png>]
+(pdftex.def)             Requested size: 146.34639pt x 267.75969pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9] [10 <./Sections/Programmierung/MainFlowchart.png>]
 <Sections/Programmierung/checkForBang.png, id=189, 180.675pt x 268.1217pt>
 File: Sections/Programmierung/checkForBang.png Graphic file (type png)
 <use Sections/Programmierung/checkForBang.png>
 Package pdftex.def Info: Sections/Programmierung/checkForBang.png  used on inpu
 t line 85.
-(pdftex.def)             Requested size: 18.06854pt x 26.81374pt.
- [10 <./Sections/Programmierung/checkForBang.png>]
-[11]) (./Sections/Tests/Tests.tex
-<Sections/Tests/BlockbildMikroTest.png, id=204, 1586.92876pt x 567.62062pt>
+(pdftex.def)             Requested size: 90.33727pt x 134.06052pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11 <./Sections/Programmierung/doav2.png>] [12 <./Sections/Programmierung/check
+ForBang.png>] [13]) (./Sections/Tests/Tests.tex
+<Sections/Tests/BlockbildMikroTest.png, id=210, 1586.92876pt x 567.62062pt>
 File: Sections/Tests/BlockbildMikroTest.png Graphic file (type png)
 <use Sections/Tests/BlockbildMikroTest.png>
 Package pdftex.def Info: Sections/Tests/BlockbildMikroTest.png  used on input l
 ine 13.
-(pdftex.def)             Requested size: 158.70216pt x 56.76538pt.
- [12 <./Sections/Tests/BlockbildMikroTest.png>]
-<Sections/Tests/Test_1_d.png, id=211, 1659.95157pt x 995.97093pt>
+(pdftex.def)             Requested size: 317.38013pt x 113.52211pt.
+ [14 <./Sections/Tests/BlockbildMikroTest.png>]
+<Sections/Tests/Test_1_d.png, id=217, 1659.95157pt x 995.97093pt>
 File: Sections/Tests/Test_1_d.png Graphic file (type png)
 <use Sections/Tests/Test_1_d.png>
 Package pdftex.def Info: Sections/Tests/Test_1_d.png  used on input line 78.
-(pdftex.def)             Requested size: 166.00488pt x 99.60292pt.
- [13 <./Sections/Tests/Test_1_d.png (PNG copy)>] [14]
-<Sections/Tests/Test_2_d.png, id=222, 1659.95157pt x 995.97093pt>
+(pdftex.def)             Requested size: 331.98444pt x 199.19066pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16 <./Sections/Tests/Test_1_d.png (PNG copy)>]
+<Sections/Tests/Test_2_d.png, id=229, 1659.95157pt x 995.97093pt>
 File: Sections/Tests/Test_2_d.png Graphic file (type png)
 <use Sections/Tests/Test_2_d.png>
 Package pdftex.def Info: Sections/Tests/Test_2_d.png  used on input line 163.
-(pdftex.def)             Requested size: 166.00488pt x 99.60292pt.
- [15 <./Sections/Tests/Test_2_d.png (PNG copy)>]
-<Sections/Tests/Test_3_d.png, id=229, 1659.95157pt x 995.97093pt>
+(pdftex.def)             Requested size: 331.98444pt x 199.19066pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[17] [18 <./Sections/Tests/Test_2_d.png (PNG copy)>] [19]
+<Sections/Tests/Test_3_d.png, id=245, 1659.95157pt x 995.97093pt>
 File: Sections/Tests/Test_3_d.png Graphic file (type png)
 <use Sections/Tests/Test_3_d.png>
-Package pdftex.def Info: Sections/Tests/Test_3_d.png  used on input line 231.
-(pdftex.def)             Requested size: 166.00488pt x 99.60292pt.
- [16 <./Sections/Tests/Test_3_d.png (PNG copy)>]
-<Sections/Tests/Gesamtaufbau.jpg, id=237, 1239.88219pt x 694.84593pt>
+Package pdftex.def Info: Sections/Tests/Test_3_d.png  used on input line 233.
+(pdftex.def)             Requested size: 331.98444pt x 199.19066pt.
+ [20 <./Sections/Tests/Test_3_d.png (PNG copy)>]
+<Sections/Tests/Gesamtaufbau.jpg, id=251, 1239.88219pt x 694.84593pt>
 File: Sections/Tests/Gesamtaufbau.jpg Graphic file (type jpg)
 <use Sections/Tests/Gesamtaufbau.jpg>
-Package pdftex.def Info: Sections/Tests/Gesamtaufbau.jpg  used on input line 29
-7.
-(pdftex.def)             Requested size: 123.99548pt x 69.48866pt.
+Package pdftex.def Info: Sections/Tests/Gesamtaufbau.jpg  used on input line 30
+1.
+(pdftex.def)             Requested size: 247.97205pt x 138.96672pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Sections/Tests/Test_6_b.png, id=238, 612.03656pt x 657.2053pt>
+<Sections/Tests/Test_6_b.png, id=253, 612.03656pt x 657.2053pt>
 File: Sections/Tests/Test_6_b.png Graphic file (type png)
 <use Sections/Tests/Test_6_b.png>
-Package pdftex.def Info: Sections/Tests/Test_6_b.png  used on input line 309.
-(pdftex.def)             Requested size: 61.20723pt x 65.72437pt.
+Package pdftex.def Info: Sections/Tests/Test_6_b.png  used on input line 313.
+(pdftex.def)             Requested size: 183.61238pt x 197.1631pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17] [18 <./Sections/Tests/Gesamtaufbau.jpg> <./Sections/Tests/Test_6_b.png (PN
+[21] [22 <./Sections/Tests/Gesamtaufbau.jpg> <./Sections/Tests/Test_6_b.png (PN
 G copy)>]
-<Sections/Tests/Test_7.png, id=250, 1284.8pt x 963.6pt>
+<Sections/Tests/Test_7.png, id=266, 1284.8pt x 963.6pt>
 File: Sections/Tests/Test_7.png Graphic file (type png)
 <use Sections/Tests/Test_7.png>
-Package pdftex.def Info: Sections/Tests/Test_7.png  used on input line 379.
-(pdftex.def)             Requested size: 128.48752pt x 96.36565pt.
+Package pdftex.def Info: Sections/Tests/Test_7.png  used on input line 383.
+(pdftex.def)             Requested size: 256.95544pt x 192.71658pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19]
-<Sections/Tests/Test_8.png, id=256, 1284.8pt x 963.6pt>
+[23]
+<Sections/Tests/Test_8.png, id=272, 1284.8pt x 963.6pt>
 File: Sections/Tests/Test_8.png Graphic file (type png)
 <use Sections/Tests/Test_8.png>
-Package pdftex.def Info: Sections/Tests/Test_8.png  used on input line 397.
-(pdftex.def)             Requested size: 128.48752pt x 96.36565pt.
- [20 <./Sections/Tests/Test_7.png (PNG copy)> <./Sections/Tests/Test_8.png (PNG
- copy)>] [21]) (./Sections/Zeiten/Zeiten.tex [22])
-(./Sections/Bedienungsanleitung/Bedienungsanleitung.tex [23])
+Package pdftex.def Info: Sections/Tests/Test_8.png  used on input line 401.
+(pdftex.def)             Requested size: 256.95544pt x 192.71658pt.
+ [24 <./Sections/Tests/Test_7.png (PNG copy)> <./Sections/Tests/Test_8.png (PNG
+ copy)>] [25]) (./Sections/Zeiten/Zeiten.tex [26])
+(./Sections/Bedienungsanleitung/Bedienungsanleitung.tex [27])
 (./Sections/Fazit/Fazit.tex)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 34.
- [24]
+ [28]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
  (./FinalDocument.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
@@ -1242,13 +1264,13 @@ Package rerunfilecheck Info: File `FinalDocument.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 34.
  ) 
 Here is how much of TeX's memory you used:
- 25137 strings out of 492164
- 475098 string characters out of 6129088
- 657442 words of memory out of 5000000
+ 25141 strings out of 492164
+ 475121 string characters out of 6129088
+ 655442 words of memory out of 5000000
  29048 multiletter control sequences out of 15000+600000
  554631 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,13n,80p,10089b,814s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,13n,80p,10089b,840s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texl
 ive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2019/texmf-dist
@@ -1263,16 +1285,15 @@ f-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2019/texmf-dist/fon
 ts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2019/texmf-dist/fonts/type1/p
 ublic/cm-super/sfrm0900.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-s
 uper/sfrm1095.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1
-440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c
-:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb><c:/texlive/
-2019/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/2019/texmf
--dist/fonts/type1/public/cm-super/sfsx1440.pfb><c:/texlive/2019/texmf-dist/font
-s/type1/public/cm-super/sfti1095.pfb><c:/texlive/2019/texmf-dist/fonts/type1/pu
-blic/cm-super/sftt1095.pfb>
-Output written on FinalDocument.pdf (27 pages, 7522688 bytes).
+440.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1095.pfb><c
+:/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfsx1200.pfb><c:/texlive/
+2019/texmf-dist/fonts/type1/public/cm-super/sfsx1440.pfb><c:/texlive/2019/texmf
+-dist/fonts/type1/public/cm-super/sfti1095.pfb><c:/texlive/2019/texmf-dist/font
+s/type1/public/cm-super/sftt1095.pfb>
+Output written on FinalDocument.pdf (31 pages, 7506559 bytes).
 PDF statistics:
- 467 PDF objects out of 1000 (max. 8388607)
- 381 compressed objects within 4 object streams
- 92 named destinations out of 1000 (max. 500000)
+ 480 PDF objects out of 1000 (max. 8388607)
+ 391 compressed objects within 4 object streams
+ 96 named destinations out of 1000 (max. 500000)
  354 words of extra memory for PDF output out of 10000 (max. 10000000)
 

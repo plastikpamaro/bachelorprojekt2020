@@ -1,6 +1,6 @@
 \section{Programmierung}
 
-\subsubsection{Beweisführung}
+\subsection{Beweisführung}
 
 Da ist sich bei dem von uns entwickeltem System um einen Prototypen für ein nutzbaren TND handelt, hat eine aussagekräftige Beweisführung der Geräusch-Lokalisierungen eine hohe Priorität. Zum Vorbild genommen wurden dafür herkömmliche Blitzeranlagen aus dem Straßenverkehr, bei denen ein Beweisfoto aufgenommen wird und Metadaten über die gemessene Geschwindigkeit abgespeichert und übermittelt werden.
 
@@ -8,9 +8,9 @@ Das eigentliche Foto wird mithilfe eines \glqq Raspberry Pi 4\grqq\ Kameramodul 
 
 Der hierzu verwendete Programmablauf lässt sich folgendermaßen beschreiben: 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Programmierung/Beweisführung}
+		\includegraphics[scale=0.5]{Sections/Programmierung/Beweisführung}
 	\end{center}
 	\caption{Beweisführung}
 	\label{fig:Beweisführung}
@@ -18,7 +18,7 @@ Der hierzu verwendete Programmablauf lässt sich folgendermaßen beschreiben:
 
 Die Beweisführung startet, wenn ein definierter Pegel überschritten wird und die Quelle des Geräusches ermittelt wurde. Da die Kamera nur einen Betrachtungswinkel von \ang{60} aufweist, wird nun überprüft, ob sich die Quelle innerhalb des Betrachtungswinkels, also innerhalb des Kamerabildes befindet\footnote{https://www.raspberrypi.org/documentation/hardware/camera/ zuletzt besucht: 05. 06. 21}.
 
-Ist dem der Fall, so wird ein Kamerabild aufgezeichnet und ein Zeitstempel erstellt. Um die Komplexität des Systems möglichst gering halten zu können wird die Kameraansteuerung direkt in dem Hauptprogramm mithilfe einer Wrapper-Klasse realisiert. 
+Ist dem der Fall, so wird ein Kamerabild aufgezeichnet und ein Zeitstempel erstellt. Um die Komplexität des Systems möglichst gering halten zu können, wird die Kameraansteuerung direkt in dem Hauptprogramm mithilfe einer Wrapper-Klasse realisiert. 
 
 Diese nutzt die \glqq RaspiCam: C++ API\grqq\ von Rafael Muñoz Salinas, um die Hardware direkt in dem Programmablauf ansteuern zu können\footnote{https://www.uco.es/investiga/grupos/ava/node/40 zuletzt besucht: 05. 06. 21}. Dies erspart die zusätzliche Verwendung von Unterprogrammen. Das nun aufgezeichnete Bild wird zunächst als \glqq .ppm\grqq\ abgespeichert. 
 
@@ -26,15 +26,15 @@ In dem nächsten Schritt wird das abgespeicherte Bild wieder geöffnet und mit d
 
 Im Anschluss wird das bearbeite Bild in einem für Windows-Betriebssysteme einfach zu lesendes Format (.png) abgespeichert. Der zu Beginn der Beweisführung aufgezeichnete Zeitstempel wird nun als Dateiname verwendet.
 
-Die Beweisführung enthält somit: ein Foto des Fahrzeugs, ein markiertes Segment, in dem sich die Quelle des Geräusches befindet und ein Zeitstempel zu welchem Datum und Uhrzeit das Fahrzeug aufgezeichnet wurde. Wahlweise können darüber hinaus auch sämtliche, sich im Buffer befindlichen Daten, die zur Lokalisierung des Geräusches verwendet wurden in Tabellenform abgespeichert werden. Da es sich hierbei aber bei einem längeren Betrieb um erhebliche Datenmengen handelt, die den internen Speicher des \glqq RaspberryWiFi\grqq\ belegen würden, wurde darauf bisher verzichtet. 
+Die Beweisführung enthält somit: ein Foto des Fahrzeugs, ein markiertes Segment, in dem sich die Quelle des Geräusches befindet und ein Zeitstempel zu welchem Datum und Uhrzeit das Fahrzeug aufgezeichnet wurde. Wahlweise können darüber hinaus auch sämtliche, sich im Buffer befindlichen Daten, die zur Lokalisierung des Geräusches verwendet wurden in Tabellenform abgespeichert werden. Da es sich hierbei aber bei einem längeren Betrieb um erhebliche Datenmengen handelt, die den internen Speicher des \glqq Raspberry Pi\grqq\ belegen würden, wurde darauf bisher verzichtet. 
 
 \subsection{Programmablauf}
 
 Der Programmablauf wird in diesem Abschnitt Schritt für Schritt erklärt und anhand geeigneter Diagramme dargestellt. Zu einer genauen Übersicht des Ablaufes ist der Flowchart des Programmes (\autoref{fig:MainFlowchart}) hilfreich. Nun folgt eine chronologische Erklärung der Programmteile.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Programmierung/MainFlowchart}
+		\includegraphics[scale=0.5]{Sections/Programmierung/MainFlowchart}
 	\end{center}
 	\caption{Main Flowchart}
 	\label{fig:MainFlowchart}
@@ -47,9 +47,9 @@ Nach dem Programmaufruf wird die DOA Konfiguration, bestehend aus vorberechneten
 
 Hier wird zunächst die Konfigurationsdatei geöffnet. Nun werden für alle möglichen Mikrofonpaare alle vorberechneten Laufzeiten aller möglichen Winkel eingelesen und in das Array precalculatedCompareValues abgespeichert. Zuletzt wird der Zugriff auf die Datei gestoppt. Die DOA Klasse beinhaltet auch die Berechnung des Ursprungsortes eines Geräusches, auf die im späteren Programmverlauf weiter eingegangen wird.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Programmierung/doav2}
+		\includegraphics[scale=0.5]{Sections/Programmierung/doav2}
 	\end{center}
 	\caption{doav2}
 	\label{fig:doav2}
@@ -62,7 +62,7 @@ Nach dem Laden der Laufzeiten wird mithilfe der create\_pipe Methode ein FIFO an
 
 \subsubsection{updateValues}
 
-Diese Methode stellt sicher, dass der Daten-Buffer nach jedem FIFO Zyklus neu gefüllt ist. Die Methode bestimmt zuerst das Maximum an gemessenen Werten aus einem Zyklus und schreibt sie dann mithilfe der \textit{fastAddValue} Methode im Signed UInt32 Format in den Speicher
+Diese Methode stellt sicher, dass der Daten-Buffer nach jedem FIFO Zyklus neu gefüllt ist. Die Methode bestimmt zuerst das Maximum an gemessenen Werten aus einem Zyklus und schreibt sie dann mithilfe der fastAddValue Methode im Signed UInt32 Format in den Speicher.
 
 \subsubsection{processFFT}
 
@@ -77,12 +77,12 @@ Im Programmablauf folgt diese einfache Getter-Methode, um die gepufferten Daten 
 
 Die checkForBang Methode ist eine der wichtigsten im gesamten Programmablauf und sitzt direkt in einer Bedingung. Wenn durch diese Methode ein lautes Signal bestätigt wird, fährt das Programm in der Verarbeitung dieses Signales fort.
 
-Wie in \autoref{fig:checkForBang} zu erkennen ist, wird anfangs mithilfe der calcEnergy Methode aus derselben Klasse der Unterschied zwischen den Energieniveaus von Geräuschen ausgerechnet. Dies geschieht durch die schon erwähnte FFT. Wenn nun die errechnete Differenz den Wert 600000 überschreitet, kann davon ausgegangen werden, dass ein lautes und beobachtungswertes Event stattgefunden hat, da eine sehr hohe Energiedifferenz zu vorherigen Werten gemessen wurde.
+Wie in \autoref{fig:checkForBang} zu erkennen ist, wird anfangs mithilfe der calcEnergy Methode aus derselben Klasse der Unterschied zwischen den Energieniveaus von Geräuschen ausgerechnet. Dies geschieht durch die schon erwähnte FFT. Wenn nun die errechnete Differenz den Wert 600000 (empirisch ermittelt) überschreitet, kann davon ausgegangen werden, dass ein lautes und beobachtungswertes Event stattgefunden hat, da eine sehr hohe Energiedifferenz zu vorherigen Werten gemessen wurde.
 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Programmierung/checkForBang}
+		\includegraphics[scale=0.5]{Sections/Programmierung/checkForBang}
 	\end{center}
 	\caption{check for bang}
 	\label{fig:checkForBang}
@@ -90,7 +90,7 @@ Wie in \autoref{fig:checkForBang} zu erkennen ist, wird anfangs mithilfe der cal
 
 \subsubsection{getAngle}
 
-Diese Methode ist nun dafür verantwortlich, dem Geräuschevent eine eindeutige Richtung zuzuordnen, um eine Beweisführung zu ermöglichen. Sie ruft zwei weitere wichtige Methoden auf – xcorr und compareValues.
+Diese Methode ist dafür verantwortlich, dem Geräuschevent eine eindeutige Richtung zuzuordnen, um eine Beweisführung zu ermöglichen. Sie ruft zwei weitere wichtige Methoden auf – xcorr und compareValues.
 
 Mithilfe der vorberechneten Korrelationswerte für das Mikrofonarray kann die xcorr Methode verwendet werden, um die Korrelation zweier Signale zu finden.
 
@@ -100,7 +100,7 @@ Mehr dazu im Abschnitt des Protokolls, dass auf die Berechnung des Winkels nähe
 
 \subsubsection{cameraControl}
 
-Die Klasse cameraControl benutzt nun, wenn sich der errechnete Winkel im richtigen Sichtfeld der Kamera befindet, zwei Methoden, um ein Foto zu erstellen und dies so zu bearbeiten, dass der Bereich der Schallquelle sichtbar wird. Mithilfe der einfachen Schnittstelle der RaspiCam und dazugehörigen Bibliotheken wird ein Bild im RGB-Format von der Kamera angefordert und abgespeichert. Nun wird mithilfe des errechneten Ergebnisses aus getAngle und OpenCV das Bild bearbeitet, indem durch mehrere else-if-Abfragen zum richtigen Bildsegment iteriert wird und dann dieses Segment mit einem Rechteck hervorgehoben wird.
+Die Klasse cameraControl benutzt, wenn sich der errechnete Winkel im richtigen Sichtfeld der Kamera befindet, zwei Methoden, um ein Foto zu erstellen und dies so zu bearbeiten, dass der Bereich der Schallquelle sichtbar wird. Mithilfe der einfachen Schnittstelle der RaspiCam und dazugehörigen Bibliotheken wird ein Bild im RGB-Format von der Kamera angefordert und abgespeichert. Nun wird mithilfe des errechneten Ergebnisses aus getAngle und OpenCV das Bild bearbeitet, indem durch mehrere else-if-Abfragen zum richtigen Bildsegment iteriert wird und dann dieses Segment mit einem Rechteck hervorgehoben wird.
 
 
 \subsection{Ortung der Geräuschquelle}
@@ -114,6 +114,6 @@ Betrachten wir als Beispiel zwei reellwertige Funktionen $ f $ und $ g $, die si
 Kreuzkorrelationen sind nützlich für die Bestimmung der Zeitverzögerung zwischen zwei Signalen, z. B. für die Bestimmung von Zeitverzögerungen für die Ausbreitung von akustischen Signalen über ein Mikrofonarray. Nach der Berechnung der Kreuzkorrelation zwischen den beiden Signalen zeigt das Maximum (oder Minimum, wenn die Signale negativ korreliert sind) der Kreuzkorrelationsfunktion den Zeitpunkt an, an dem die Signale am besten ausgerichtet sind; d. h., die Zeitverzögerung zwischen den beiden Signalen wird durch das Argument des Maximums die Kreuzkorrelation bestimmt. Diese mathematische Eigenschaft benutzen wir um mit
 $ \tau= arg\ _{t \in \mathbb{R}}\ max\left(( f \star g)(t)\right) $ den zeitlichen Versatz zu errechnen.
 
-In unserem Fall werden diese Maxima initial in Abhängigkeit der geometrischen Form des Mikrofonarray ausgerechnet. Dann wird in der \textit{xcorr} Methode die maximale Latenz zwischen jeder möglichen Mikrofonpaarung ausgerechnet und diese dann in der compareValues Methode miteinander verglichen. Diese Methode vergleicht nun alle gemessenen Verzögerungen mit den vorher ausgerechneten Verzögerungen, und zwar für jeden möglichen Winkel. Der Winkelbereich mit den größten Übereinstimmungen über alle Mikrofonpaarung, kann mit Sicherheit als der Bereich gekennzeichnet werden, aus dem das Geräusch kommt.
+Im vorliegenden Fall werden diese Maxima initial in Abhängigkeit der geometrischen Form des Mikrofonarray ausgerechnet. Damit wird in der \textit{xcorr} Methode die maximale Latenz zwischen jeder möglichen Mikrofonpaarung ausgerechnet und diese dann in der compareValues Methode miteinander verglichen. Diese Methode vergleicht nun alle gemessenen Verzögerungen mit den vorher ausgerechneten Verzögerungen, und zwar für jeden möglichen Winkel. Der Winkelbereich mit den größten Übereinstimmungen über alle Mikrofonpaarung, kann mit Sicherheit als der Bereich gekennzeichnet werden, aus dem das Geräusch kommt.
 
 \newpage

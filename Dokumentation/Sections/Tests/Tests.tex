@@ -8,9 +8,9 @@ Leider hat die aktuell herrschende Covid-19 Pandemie die Erstellung und Durchfü
 
 Noch vor der eigentlichen Entwicklungsarbeit wurden die zur Verfügung gestellten Einzelkomponenten auf ihre Funktion überprüft. Hierzu wurde der Raspberry Pi mit einem Betriebssystem versehen (Raspberry OS 10) und mit der notwendigen c-Bibliothek versehen (BCM 2835 V1.68). Über einfache Jumperkabel wurde jeweils ein zu testendes Mikrofon und ein Abschlussmikrofon an den Raspberry angeschlossen und ein Test durchgeführt. (\autoref{fig:BlockbildMikroTest}).
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/BlockbildMikroTest}
+		\includegraphics[scale=0.2]{Sections/Tests/BlockbildMikroTest}
 	\end{center}
 	\caption{Blockbild Mikro Test}
 	\label{fig:BlockbildMikroTest}
@@ -73,9 +73,9 @@ Mit dem Skript \glqq RecordMicToRAM\grqq\ wurden die Daten des Mikrofonpaares ei
 
 In einem ersten Entwicklungsschritt wurde das gesamte Mikrofonarray mit großzügig dimensionierten Verbindungskabeln (Kabellänge ca. 50 cm) aufgebaut und in Abständen von ungefähr \SI{20}{cm} zueinander platziert. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Test_1_d}
+		\includegraphics[scale=0.2]{Sections/Tests/Test_1_d}
 	\end{center}
 	\caption{Kabelfunktionstest 1}
 	\label{fig:Test_1_d}
@@ -83,11 +83,11 @@ In einem ersten Entwicklungsschritt wurde das gesamte Mikrofonarray mit großzü
 
 Die dargestellte Messung wurde über einen Zeitraum von acht Sekunden durchgeführt mit einem Händeklatschen nach ungefähr zwei Sekunden.
 
-Die Erwartungshaltung an die Ergebnisse war ein sauberer Ausschlag der Messwerte bei ungefähr einem Viertel der vergangenen Testzeit mit einem anschließenden Abklingen auf den Umgebungspegel.
+Die Erwartungshaltung an die Ergebnisse ist ein sauberer Ausschlag der Messwerte bei ungefähr einem Viertel der vergangenen Testzeit mit einem anschließenden Abklingen auf den Umgebungspegel.
 
-Lediglich die Aufzeichnungen aus Mikrofon 1 entsprachen den Erwartungen (Ausschlag bei ca. 40.000 Samples), während die restlichen Mikrofone deutliches Rauschen aufwiesen. In der Aufzeichnung von Mikrofon 3 war selbst das Event (erwartet bei ca. 40.000 Samples) nicht zu erkennen, während auf den anderen Kanälen noch Andeutungen eines stärker verrauschten Bereiches zu erkennen waren. Dieses Verhalten hätte seine Ursache beim Raspberry Pi haben können. Dieser muss für die Taktung der Mikrofone einen SPI-Takt über das gesamte Array treiben können. Mit zunehmender Kabellänge nimmt die Taktsicherheit ab. 
+Lediglich die Aufzeichnungen aus Mikrofon 1 entsprechen den Erwartungen (Ausschlag bei ca. 40.000 Samples), während die restlichen Mikrofone deutliches Rauschen aufweisen. In der Aufzeichnung von Mikrofon 3 ist selbst das Event (erwartet bei ca. 40.000 Samples) nicht zu erkennen, während auf den anderen Kanälen noch Andeutungen eines stärker verrauschten Bereiches zu erkennen ist. Dieses Verhalten hätte seine Ursache beim Raspberry Pi haben können. Dieser muss für die Taktung der Mikrofone einen SPI-Takt über das gesamte Array treiben können. Mit zunehmender Kabellänge nimmt die Taktsicherheit ab. 
 
-Durch ein Fachgespräch mit Max Weltz schlossen wir auf folgende mögliche Ursachen:
+Durch ein Fachgespräch mit Max Weltz werden folgende mögliche Ursachen in den Fokus gerückt:
 
 \begin{itemize}
 	\item Kabel defekt
@@ -95,7 +95,7 @@ Durch ein Fachgespräch mit Max Weltz schlossen wir auf folgende mögliche Ursac
 	\item Kabel zu lang
 \end{itemize}
 
-Um eine qualitative Ursachensuche vornehmen zu können, beschlossen wir die aufgezählten Ursachen separat zu Untersuchen.
+Um eine qualitative Ursachensuche vornehmen zu können, werden die aufgezählten Ursachen separat untersucht.
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
@@ -152,23 +152,23 @@ Um eine qualitative Ursachensuche vornehmen zu können, beschlossen wir die aufg
 
 \subsection{Kabelfunktionstest 2}
 
-Weil für den Mikrofontest keine eigenen Kabel verwendet wurden, ist es noch notwendig die selbst hergestellten Kabel auf fehlerfreie Funktion zu testen. Dafür wurden diese mit einem Mulitmeter erst auf Durchgang und im zweiten Schritt auf Kurzschlüsse zwischen den Einzeladern getestet. In beiden Fällen ist bei der Produktion der Kabel kein Fehler aufgetreten, daher können diese als voll funktionsfähig angesehen werden.
+Da für den Mikrofontest keine eigenen Kabel verwendet werden, ist es noch notwendig die selbst hergestellten Kabel auf fehlerfreie Funktion zu testen. Dafür werden diese mit einem Mulitmeter erst auf Durchgang und im zweiten Schritt auf Kurzschlüsse zwischen den Einzeladern getestet. In beiden Fällen ist bei der Produktion der Kabel kein Fehler aufgetreten, daher können diese als voll funktionsfähig angesehen werden.
 
 \subsection{Kabelfunktionstest 3}
 
-In einer zweiten Iteration wurde das System umkonfiguriert, sodass jetzt mit einem SPI-Takt von \SI{3,9}{MHz} und nicht wie ursprünglich mit \SI{7,8}{MHz} gearbeitet wird. 
+In einer zweiten Iteration soll das System so angepasst werden, dass der SPI-Takt von den ursprünglichen \SI{7,8}{MHz} auf \SI{3,9}{MHz} reduziert wird. 
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Test_2_d}
+		\includegraphics[scale=0.2]{Sections/Tests/Test_2_d}
 	\end{center}
 	\caption{Kabelfunktionstest 3}
 	\label{fig:Test_2_d}
 \end{figure}
 
-Für diese Konfiguration wurde die gleiche Testmethode verwendet und es ist zu erkennen, dass die Messungen nun deutlich weniger verrauscht waren. Dennoch sind immer wieder bit-shift Fehler zu erkennen, die das Messergebnis zu bestimmten Schwellenwerten springen lässt. Die Messungen waren somit immer noch zu stark verrauscht und für eine Verwendung unbrauchbar. 
+Für diese Anpassung wird die gleiche Testmethode verwendet. Wie vermutet ist die Messung nun deutlich weniger verrauscht. Dennoch sind immer wieder bit-shift Fehler zu erkennen, die das Messergebnis zu bestimmten Schwellenwerten springen lässt. Die Messungen sind somit immer noch zu stark verrauscht und für eine Verwendung unbrauchbar. 
 
-Eine reine Reduzierung des verwendeten SPI-Takts hat das Problem also noch nicht vollständig gelöst.
+Eine reine Reduzierung des  SPI-Takts hat das Problem nicht vollständig lösen können.
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
@@ -222,19 +222,23 @@ Eine reine Reduzierung des verwendeten SPI-Takts hat das Problem also noch nicht
 \captionof{table}{ Kabelfunktionstest Nr. 3}
 \label{tab: Kabelfunktionstest Nr. 3}
 
+\newpage
+
 \subsection{Kabelfunktionstest 4}
 
-In der nächsten Anpassung wurde die Kabellänge der Mikrofonkabel auf nun ca. \SI{25}{cm} reduziert mit der Erwartung, dass die Taktsicherheit über die gesamte Kabellänge steigen sollte.
+In der nächsten Anpassung werden die Kabel der Mikrofonkabel auf ca. \SI{25}{cm} reduziert mit der Erwartung, dass die Taktsicherheit über die gesamte Kabellänge steigen sollte.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Test_3_d}
+		\includegraphics[scale=0.2]{Sections/Tests/Test_3_d}
 	\end{center}
 	\caption{Kabelfunktionstest 4}
 	\label{fig:Test_3_d}
 \end{figure}
 
-Die nun durchgeführte Messung wies das gewünschte, rauschfreie Verhalten der Messwerte auf allen Kanälen auf. Die Kabel wurden somit in Bezug auf die Datenübertragung hinreichend auf die Funktion überprüft. 
+Die durchgeführte Messung weißt das gewünschte, rauschfreie Verhalten der Messwerte auf allen Kanälen auf. Die Kabel sind somit, in Bezug auf die Datenübertragung, hinreichend auf die Funktion überprüft. 
+
+\newpage
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
@@ -290,29 +294,29 @@ Die nun durchgeführte Messung wies das gewünschte, rauschfreie Verhalten der M
 
 \subsection{Algorithmustest}
 
-Im nächsten Testschritt wurde das Gesamtsystem in einer den Anforderungen entsprechenden Umgebungssituation getestet. Das bedeutet das System wurde auf einem Stativ in fast vollständig aufgebautem Zustand im Freien, in einer echoreduzierten Umgebung betrieben.
+Im nächsten Testschritt wird das Gesamtsystem in einer den Anforderungen entsprechenden Umgebungssituation getestet. Das bedeutet das System wird auf einem Stativ in fast vollständig aufgebautem Zustand im Freien, in einer echoreduzierten Umgebung betrieben.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Gesamtaufbau}
+		\includegraphics[scale=0.2]{Sections/Tests/Gesamtaufbau}
 	\end{center}
 	\caption{provisorischer Gesamtaufbau}
 	\label{fig:Test_4}
 \end{figure}
 
-Zunächst wurde erneut eine Messung über eine Dauer von acht Sekunden durchgeführt und wieder nach ungefähr zwei Sekunden ein Händeklatschen in einer Distanz von ca. \SI{15}{m} aufgezeichnet.
+Zunächst wird erneut eine Messung über eine Dauer von acht Sekunden durchgeführt und wieder nach ungefähr zwei Sekunden ein Händeklatschen in einer Distanz von ca. \SI{15}{m} aufgezeichnet.
 
-Die Aufgezeichneten Werte  der Messungen, also 205000 Messwerte pro Mikrofon, wurden im Anschluss in Matlab mit dem gleichen Algorithmus ausgewertet, der auch Systemintern verwendet wird. Die Lokalisierung ergab folgendes Bild:
+Die Aufgezeichneten Werte  der Messungen, also 205000 Messwerte pro Mikrofon, werden im Anschluss in Matlab mit dem gleichen Algorithmus ausgewertet, der auch Systemintern verwendet wird. Die Lokalisierung ergab \autoref{fig:Test_6_b}.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Test_6_b}
+		\includegraphics[scale=0.3]{Sections/Tests/Test_6_b}
 	\end{center}
 	\caption{Auswertung Delay-and-Sum Algorithmus}
 	\label{fig:Test_6_b}
 \end{figure}
 
-Wie zu erwarten ist das Bild der Lokalisierung Achsensymmetrisch entlang der vertikalen, da unser definiertes Koordinatensystem entsprechend rotiert ist. Betrachtet wird in der Auswertung nur der Bereich von \ang{0} - \ang{30} und \ang{330} - \ang{360}, da dieser Winkelbereich ebenfalls von der Systemkamera abgedeckt wird. Ein Ergebnis der Lokalisierung nahe \ang{0} legt also ein Eventursprung frontal des Systems und somit mittig im Bild nahe. Das Ergebnis der Berechnung stimmte ebenfalls mit den Erwartungen überein, da das Geräusch ebenfalls ungefähr frontal vor dem System erzeugt wurde.
+Wie zu erwarten ist das Bild der Lokalisierung Achsensymmetrisch entlang der vertikalen, da unser definiertes Koordinatensystem entsprechend rotiert ist. Betrachtet wird in der Auswertung nur der Bereich von \ang{0} - \ang{30} und \ang{330} - \ang{360}, da dieser Winkelbereich ebenfalls von der Systemkamera abgedeckt wird. Ein Ergebnis der Lokalisierung nahe \ang{0} legt also ein Eventursprung frontal des Systems und somit mittig im Bild nahe. Das Ergebnis der Berechnung stimmte ebenfalls mit den Erwartungen überein, da das Geräusch ebenfalls ungefähr frontal vor dem System erzeugt wird.
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline
@@ -370,43 +374,43 @@ Wie zu erwarten ist das Bild der Lokalisierung Achsensymmetrisch entlang der ver
 
 \subsection{Gesamt-Funktionstest}
 
-Im nächsten Test wurde das System wie bereits im Kapitel \glqq Bedienung\grqq\ beschrieben betrieben. 
+Im nächsten Test wird das System wie bereits im Kapitel \glqq Bedienung\grqq\ beschrieben betrieben. 
 
-Auch hier wurde das System wieder in einer anforderungsähnlichen Umgebungssituation aufgebaut.
+Auch hier wird das System wieder in einer anforderungsähnlichen Umgebungssituation aufgebaut.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Test_7}
+		\includegraphics[scale=0.2]{Sections/Tests/Test_7}
 	\end{center}
 	\caption{erfolgreicher Gesamt-Funktionstest}
 	\label{fig:Test_7}
 \end{figure}
 
-In diesem Test wurde der eigentliche Dauerbetrieb des Systems getestet. Das bedeutet, das System lief endlos (bis es durch den Nutzer abgebrochen wurde), währende durch das Programm fortlaufende Messdaten ausgewertet wurden. 
+In diesem Test wird der eigentliche Dauerbetrieb des Systems getestet. Das bedeutet, dass das System endlos läuft (bis es durch den Nutzer abgebrochen wird), während das Programm fortlaufende Messdaten auswertet. 
 
-Erwartet wurde eine Benachrichtigung des Nutzers über ein erkanntes Event mit des zugehörigen Lokalisierungsergebnis über die Systemkonsole mit einer zugehörigen .png-Datei, auf der das erkannte Segment, farblich markiert wurde.
+Erwartet wird, dass der Nutzer eine Benachrichtigung, über ein erkanntes Event, mit dem dazugehörigen Lokalisierungsergebnis, über die Systemkonsole, mit einer zugehörigen .png-Datei, auf der das erkannte Segment, welches farblich markiert wird, erhält.
 
-Der Versuch hat gezeigt, dass das System den erhöhten Pegel eines auftretenden Events sehr gut erkennen kann. Zwar kam es immer wieder zu variierenden Verzögerungen in der Anzeige auf der Konsole, aber es wurden dennoch aufeinanderfolgende Events korrekt hintereinander aufgelistet. Der hierzu verwendete Schwellenwert, ab dem das System auslösen soll, musste zunächst auf die neue Umgebungssituation und auf die Lautstärke des Events angepasst werden. 
+Der Versuch zeigt, dass das System den erhöhten Pegel eines auftretenden Events sehr gut erkennt. Zwar kommt es immer wieder zu variierenden Verzögerungen in der Anzeige auf der Konsole, aber dennoch werden aufeinanderfolgende Events korrekt hintereinander aufgelistet. Der hierzu verwendete Schwellenwert, ab dem das System auslösen soll, muss zunächst auf die neue Umgebungssituation und auf die Lautstärke des Events angepasst werden. 
 
-Wie im obigen Bild aufgezeigt, konnte der Ursprungsort des Events korrekt lokalisiert werden. 
+Wie im obigen Bild aufgezeigt, kann der Ursprungsort des Events korrekt lokalisiert werden. 
 
-Bei wiederholter Testdurchführung kam es allerdings auch immer wieder zu Messungen, die nicht den Erwartungen entsprochen haben.
+Bei wiederholter Testdurchführung kommt es allerdings auch immer wieder zu Messungen, die nicht den Erwartungen entsprechen.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\begin{center}
-		\includegraphics[scale=0.1]{Sections/Tests/Test_8}
+		\includegraphics[scale=0.2]{Sections/Tests/Test_8}
 	\end{center}
 	\caption{unerfolgreicher Gesamt-Funktionstest}
 	\label{fig:Test_8}
 \end{figure}
 
-Obwohl sich der Ursprungsort des Events ungefähr in der Bildmitte befand, wurde der rechte Bildrand als Ursprung lokalisiert. 
+Obwohl sich der Ursprungsort des Events ungefähr in der Bildmitte befindet, wird der rechte Bildrand als Ursprung lokalisiert. 
 
-Durch die Fehllokalisierung trat darüber hinaus auch der Fall auf, dass das Event zwar korrekt erkannt wurde, aber aufgrund des fehlerhaft berechneten Ursprungswinkel wurde das Event als außerhalb des Bildbereiches bewertet und keine Beweisführung durchgeführt. 
+Durch die Fehllokalisierung tritt darüber hinaus auch der Fall auf, dass das Event zwar korrekt erkannt wird, aber aufgrund des fehlerhaft berechneten Ursprungswinkel wird das Event als außerhalb des Bildbereiches bewertet und keine Beweisführung durchgeführt. 
 
-Diese Fehlmessung ist wahrscheinlich auf die Tatsache rückzuführen, dass der \glqq Raspberry Pi\grqq\ im laufenden Betrieb des Systems nur eine sehr begrenze Menge an Daten in seinem RAM abspeichern kann. Dadurch waren wir gezwungen die Lokalisierung mit einer deutlich reduzierten Menge an Messwerten durchzuführen. 
+Diese Fehlmessung ist wahrscheinlich auf die Tatsache rückzuführen, dass der \glqq Raspberry Pi\grqq\ im laufenden Betrieb des Systems nur eine sehr begrenze Menge an Daten in seinem RAM abspeichern kann. Dies hat zur Folge, dass die Lokalisierung mit einer deutlich reduzierten Menge an Messwerten durchgeführt wird. 
 
-Leider war es uns nicht möglich ein Testverfahren zu entwickeln, mit welchem sich die Genauigkeit der Lokalisierung qualitativ bewerten lässt, um so ein Minimum an benötigten Messdaten ermitteln zu können. Die verwendete Buffergröße wurde lediglich durch Tests ermittelt.
+Leider war es nicht möglich ein Testverfahren zu entwickeln, mit welchem sich die Genauigkeit der Lokalisierung qualitativ bewerten lässt, um so ein Minimum an benötigten Messdaten zu ermitteln. Die verwendete Buffergröße wird lediglich durch die Testergebnisse bestimmt.
 
 \begin{tabularx}{\columnwidth}{|p{4cm}|X|}
 	\hline

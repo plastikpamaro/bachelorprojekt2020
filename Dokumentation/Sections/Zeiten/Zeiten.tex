@@ -1,8 +1,8 @@
 \section{Zeiten}
 
-Für Systeme wie sie in der Geschwindigkeitsüberwachung eingesetzt werden ist die Minimierung der Totzeit sehr wichtig. Sie beschreibt die Zeit, in der das System nicht in der Lage ist, ein neues Event zu erkennen, weil es z.B. noch mit der Datenauswertung oder Datenverarbeitung beschäftigt ist.
+Für Systeme, wie sie in der Geschwindigkeitsüberwachung eingesetzt werden, ist die Minimierung der Totzeit sehr wichtig. Sie beschreibt die Zeit, in der das System nicht in der Lage ist, ein neues Event zu erkennen, da es z.B. noch mit der Datenauswertung oder Datenverarbeitung beschäftigt ist.
 
-Eine Messung dieser Zeiten war nur systemintern mit Software-Timer möglich, die in diesem Fall allerdings hinreichend genau waren.
+Eine Messung dieser Zeiten ist nur systemintern mit Software-Timer möglich, die in diesem Fall allerdings hinreichend genau sind.
 
 \begin{table}[h]
 \centering
@@ -23,7 +23,7 @@ Eine Messung dieser Zeiten war nur systemintern mit Software-Timer möglich, die
 \label{tab:Zeitenvergleich}
 \end{table}
 
-Die Tests haben gezeigt, dass die Berechnungszeit hauptsächlich von der Buffergröße abhängig ist. Zu Testzwecken wurde diese um Vielfache der ursprünglichen Anzahl erhöht. Die Berechnungszeit steigt proportional zur Buffergröße an. Vergleicht man nun die Buffergröße dividiert mit der Abtastrate der Mikrofone so fällt auf, dass die Berechnungsdauer in Sekunden ungefähr genauso groß ist, wie die Buffergröße in Sekunden. 
+Die Tests zeigen, dass die Berechnungszeit hauptsächlich von der Buffergröße abhängig ist. Zu Testzwecken wird diese um ein Vielfache der ursprünglichen Anzahl erhöht. Die Berechnungszeit steigt proportional zur Buffergröße an. Vergleicht man nun die Buffergröße dividiert mit der Abtastrate der Mikrofone so fällt auf, dass die Berechnungsdauer in Sekunden ungefähr genauso groß ist, wie die Buffergröße in Sekunden. 
 
 t\textsubscript{Ges} ergibt sich aus der Berechnungsdauer zuzüglich der Dauer, die das System benötigt das Ergebnis der Rechnung auf seine Gültigkeit im Blickwinkel zu überprüfen, das Bild aufzuzeichnen und das Bild zu bearbeiten. Die Dauer der reinen Bildverarbeitung lässt sich also mit:
 
